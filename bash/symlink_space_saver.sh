@@ -18,3 +18,7 @@
 #   Purpose:                                                                   #
 #      	Uses rdfind and symlinks to reduce space by symlinking duplicate files.#
 ################################################################################
+symlinkspacesaver() {
+    rdfind -makesymlinks true $1
+    symlinks -cr $1
+}
