@@ -12,7 +12,7 @@
  *  GNU General Public License for more details.                              *
  *                                                                            *
  *  You should have received a copy of the GNU General Public License         *
- *  along with thie file.  If not, see <https://www.gnu.org/licenses/>.       *
+ *  along with this file.  If not, see <https://www.gnu.org/licenses/>.       *
  ******************************************************************************
  *  Purpose:                                                                  *
  *      Time test C vs Fortran with something simple. Computes sqrt(x) for a  *
