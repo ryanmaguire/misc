@@ -16,9 +16,10 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Purpose:                                                                   #
-#       Replaces symlinks with hard copies.                                    #
+#       On an old version of macOS, Mavericks or something, the apps menu      #
+#       would consistently glitch for reasons unknown to me. This fixed that,  #
+#       temporarily (the issue may return after logging out then back in).     #
 ################################################################################
-lnmystuff() {
-    find ./ -type l -exec sh -c 'for i in "$@"; do cp --preserve --remove-destination "$(readlink -f "$i")" "$i"; done' sh {} +
-}
-
+find /private/var/folders/ -name com.apple.iconservices -exec rm -rf {} \;
+rm -rf /Library/Caches/com.apple.iconservices.store
+killall Dock

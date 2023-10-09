@@ -16,9 +16,22 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Purpose:                                                                   #
-#       Replaces symlinks with hard copies.                                    #
+#       Old "Hello, World" example testing some Bash features.                 #
 ################################################################################
-lnmystuff() {
-    find ./ -type l -exec sh -c 'for i in "$@"; do cp --preserve --remove-destination "$(readlink -f "$i")" "$i"; done' sh {} +
-}
+printf "\nHello, World!\nMy name is %s!\n" "$1"
 
+if [ ! -d "$2" ]; then
+    echo "Directory $2 Does Not Exist!"
+    echo "Do You Want To Make It? [y/n]"
+    read var
+    if [ "$var" = "y" ]; then
+        echo "You got it!"
+        mkdir "$2"
+    else
+        echo "Alrighty then!"
+        exit 1
+    fi
+else
+    echo "$2 Exists! Don't Touch!"
+    exit 1
+fi

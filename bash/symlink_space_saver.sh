@@ -16,7 +16,7 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Purpose:                                                                   #
-#      	Uses rdfind and symlinks to reduce space by symlinking duplicate files.#
+#       Uses rdfind and symlinks to reduce space by symlinking duplicate files.#
 ################################################################################
 symlinkspacesaver() {
     rdfind -makesymlinks true $1

@@ -16,7 +16,7 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Purpose:                                                                   #
-#      	Unlinks some of the symlinks in the dosdevices folder of a wine prefix.#
+#       Unlinks some of the symlinks in the dosdevices folder of a wine prefix.#
 ################################################################################
 unlinkmystuff() {
     unlink com1

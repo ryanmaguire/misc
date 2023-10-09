@@ -16,7 +16,7 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Purpose:                                                                   #
-#      	Creates a compressed tape archive using tar and xz.                    #
+#       Creates a compressed tape archive using tar and xz.                    #
 ################################################################################
 tarmystuff() {
     TARFIL="${1}.tar.xz"
