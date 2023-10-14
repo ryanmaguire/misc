@@ -16,7 +16,7 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Purpose:                                                                   #
-#      	Clones all of my github repos into the current directory.              #
+#       Clones all of my github repos into the current directory.              #
 ################################################################################
 GITHUB_USERNAME=ryanmaguire
 curl "https://api.github.com/users/$GITHUB_USERNAME/repos?per_page=1000" | \
