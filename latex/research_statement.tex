@@ -239,7 +239,7 @@
         \end{theorem}
     \section{Future Work}
         I am currently working on two separate problems. Firstly is attempting
-        to improve the \textit{JavaKh} implementation of Bar-Natan's
+        to improve the \texttt{JavaKh} implementation of Bar-Natan's
         algorithm \cite{BarNatan2006FASTKH} in an effort to tabulate the
         Khovanov polynomials of all knots up to 19 crossings (up to 17 has
         been done, \cite{KhovanovData}). This is proving quite difficult, but
@@ -254,28 +254,54 @@
         some positive integer $n$. That is, an $n+1$ dimensional smooth
         manifold together with a pseudo-Riemannian metric $g$%
         \footnote{
-            Similarly to a Riemannian metric, but the positive-definite
+            Similar to a Riemannian metric, but the positive-definite
             criterion is relaxed to non-degeneracy.
         }
         such that for every point $p\in{X}$ there is a chart
         $(x_{1},\,\dots,\,x_{n},\,t)$ about $p$ such that:
         \begin{equation}
-            g=-\textrm{d}t^{2}+\sum_{k=0}^{n}\textrm{d}x_{n}^{2}
+            g=-\textrm{d}t^{2}+\sum_{k=1}^{n}\textrm{d}x_{n}^{2}
         \end{equation}
         The null-vectors $v\in{T}_{x}X$, tangent vectors with
-        $g_{p}(v,\,v)=0$, satisfy the equation of a cone. This
+        $g_{x}(v,\,v)=0$, satisfy the equation of a cone. This
         \textit{light-cone} splits the tangent space into three parts: the
         cone, the exterior, and the interior. The interior of the cone consists
         of two connected components. A \textit{spacetime} is a Lorentz manifold
-        $(X,\,g)$ with a smoothly varying choice of of these connected
+        $(X,\,g)$ with a smoothly varying choice of these connected
         components. This choice is called the \textit{future} direction at
-        each point. Spacetimes are the natural settings for the theory of
+        each point, and the result is a \textit{time-orientation} of the
+        manifold. Spacetimes are the natural setting for the theory of
         general relativity. Two points in a spacetime are
         \textit{causally related} if there is a piece-wise smooth curve
-        connected $\gamma$ connecting them such that
+        $\gamma$ connecting them such that
         $g_{\gamma(t)}(\gamma'(t),\,\gamma'(t))\leq{0}$ for all $t$.
         Intuitively this means the speed of a particle travelling along $\gamma$
         never exceeds the speed of light.
+        \par\hfill\par
+        For appropriate spacetimes (globally hyperbolic) $X$, causality can be
+        reduced to a question of \textit{linking}. The space of all light rays
+        in a globally hyperbolic space corresponds naturally to the
+        spherical cotangent bundle $ST^{*}M$ of a \textit{Cauchy surface} $M$,
+        a particular co-dimension 1 submanifold of the spacetime, and the
+        \textit{sky} of a point $p$ is given by the fiber of the canoical
+        projection $\pi:ST^{*}M\rightarrow{M}$. Topologically these skies are
+        spheres, and the question of causality can be reduced to
+        \textit{Legendrian linking} of the skies of points. This is the
+        Legendrian Low conjecture, proved by Chernov and Nemirovski in 2008.
+        \par\hfill\par
+        Knot theory has found its way into Lortentz geometry in other ways.
+        The linking number, a famous invariant of links dating back to Gauss,
+        has been generalized by the \textit{affine linking number} to the
+        $(n-1)$ spheres in the spherical cotangent bundle of an $n$ dimensional
+        manifold, and these spheres need not be zero homologous.
+        In 2004 Chernov and Rudyak used this to prove a causal
+        relation between points in a spacetime in regards to this invariant.
+        In my current work I am trying to expand this to count the number of
+        times an observer may see a particular point in a space time. That is,
+        using this invariant to count the number of light rays between
+        causal points.
+        \par\hfill\par
+        \textbf{TODO:} Add references for the previous paragraphs.
     \section{Previous Work}
         \subsection{DWEL}
             The first \textit{real} project I worked on was DWEL, the
