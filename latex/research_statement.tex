@@ -22,6 +22,12 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{amsmath}
+\usepackage[font=scriptsize,
+            labelformat=simple,
+            labelsep=colon]{subcaption} % Subfigure captions.
+\usepackage[font={scriptsize},
+            hypcap=true,
+            labelsep=colon]{caption}    % Figure captions.
 \usepackage{graphics}
 \usepackage{hyperref}
 
@@ -98,7 +104,7 @@
         My personal contributions lie in the implementation of knot algorithms
         for the tabulation of knot invariants. For a simple example,
         consider the Jones polynomial. Given an $n$ crossing knot $K$
-        with crossings ordered between $0$ and $n-1$ we can defined the
+        with crossings ordered between $0$ and $n-1$ we can define the
         Kauffman bracket via:
         \begin{equation}
             \langle{K}\rangle(q)
@@ -143,9 +149,15 @@
         \cite{Burton2018HOMFLFixedParameter},
         \cite{Burton2012ComputationalTW}),
         a bivariate Laurent polynomial that generalizes the Jones polynomial,
-        and a database has been created (\cite{HOMFLYData}). The Khovanov
-        polynomial, defined from Khovanov homology by throwing away the torsion
-        components, summing over the dimension of the homogeneous components
+        and a database has been created (\cite{HOMFLYData}). I have parallelized
+        some of the scripts, and this table can be created in a few hours.%
+        \footnote{%
+            The table consists of over 352 million knot polynomials. Not bad
+            for a sub-exponential algorithm.
+        }
+        The Khovanov polynomial is defined from Khovanov homology by throwing
+        away the torsion components, summing over the dimension of the
+        homogeneous components
         $KH_{n}^{m}(K)$:
         \begin{equation}
             Kh(K)(q,\,t)=\sum_{m,\,n}
@@ -153,8 +165,11 @@
         \end{equation}
         This contains the Jones polynomial, $J(K)(q)=Kh(q,\,-1)$. Efforts to
         tabulate the Khovanov polynomial have proven difficult, but all prime
-        knots up to 17 crossings have been completed
-        \cite{KhovanovData}.
+        knots up to 17 crossings have been completed \cite{KhovanovData}.%
+        \footnote{%
+            Attempts to parallelize these procedures is underway to get to
+            19 crossings in a reasonable amount of time.
+        }
         \par\hfill\par
         I have used these tables and programs to experiment with conjectures in
         knot theory and contact topology. A contact structure on a
@@ -186,14 +201,19 @@
         possible for two embeddings of $\mathbb{S}^{1}$ into $\mathbb{R}^{3}$
         to be equivalent topologically as knots, but not as Legendrian knots.
         \par\hfill\par
-        Legendrian knot invariants exist, such as the Thurston-Bennequin $tb$
-        number, and the rotation number $r$ (these are not invariants of
+        Legendrian knot invariants exist, such as the Thurston-Bennequin
+        number $tb$, and the rotation number $r$ (these are not invariants of
         topological knots). A topological knot type $K$ is said to be
         \textit{Legendrian simple} if all Legendrian representations of $K$ are
-        uniquely determined by the ordered pair $(tb,\,r)$. Several families of
-        knots are known to be Legendrian simple, such as the torus knots,
-        and \textit{half} of the twist knots ($K_{m}$ for all $m\in\mathbb{Z}$
-        with $m\geq{-3}$).
+        uniquely determined by the ordered pair $(tb,\,r)$. That is, if
+        $K'$ and $K''$ are Legendrian embeddings that are topologically
+        equivalent to a knot $K$, where $K$ is Legendrian simple, and if
+        $K'$ and $K''$ have the same Thurston-Bennequin and rotation numbers,
+        then there is a Legendrian isotopy $H_{t}$ from $K'$ to $K''$.
+        Several families of knots are known to be Legendrian simple, such as
+        the torus knots \cite{EtnyreHondaContactTopologyI}, and \textit{half}
+        of the twist knots ($K_{m}$ for all $m\in\mathbb{Z}$ with $m\geq{-3}$)
+        \cite{EtnyreEtAlLegendrianAndTransverseTwistKnots}.
         \par\hfill\par
         In \cite{ChernovMaguireLegendrianConjecture} Chernov and I conjectured
         that Khovanov homology is able to detect Legendrian simple knots. This
@@ -202,7 +222,7 @@
         Baldwin and Sivek \cite{BaldwinSivekKhovanovTrefoils}, and
         Baldwin, Dowlin, Levine, Lidman, and Sazdanovi
         \cite{BaldwinDowlinKhovanovFigureEight}, who proved that Khovanov
-        homology detects the unknot, trefoils, and figure-eight knot,
+        homology detects the unknot, figure-eight knot, and trefoils,
         respectively, the simplest of the Legendrian simple knots.
         \par\hfill\par
         Using the torus knots, twist knots, and even the conjectured Legendrian
@@ -211,12 +231,51 @@
         Several matches were found, and since the Khovanov polynomial contains
         the Jones polynomial (recall $J(K)(q)=Kh(q,\,-1)$), these matches are
         the only possible candidates for matching Khovanov homologies. Upon
-        computing these, the following was found (by brute force).
+        computing the Khovanov polynomials the following was found.
         \begin{theorem}
             If a prime knot $K$ has less than or equal to 19 crossings and has
             the Khovanov homology of a torus knot or a twist knot $T$,
             then $K$ is equivalent to $T$.
         \end{theorem}
+    \section{Future Work}
+        I am currently working on two separate problems. Firstly is attempting
+        to improve the \textit{JavaKh} implementation of Bar-Natan's
+        algorithm \cite{BarNatan2006FASTKH} in an effort to tabulate the
+        Khovanov polynomials of all knots up to 19 crossings (up to 17 has
+        been done, \cite{KhovanovData}). This is proving quite difficult, but
+        for the case of low-crossing numbers (say, less than 30 or so),
+        arbitrary-precision integers do not seem to be needed, the intermediate
+        arithmetical steps seem to fit in 32-bit or 64-bit integers, and
+        experimenting with these subleties is underway.
+        \par\hfill\par
+        My other current interest lies in Lorentz geometry and spacetimes,
+        the mathematical framework of general relativity. A Lorentz manifold
+        is a pseudo-Riemannian manifold $(X,\,g)$ with signature $(n,\,1)$ for
+        some positive integer $n$. That is, an $n+1$ dimensional smooth
+        manifold together with a pseudo-Riemannian metric $g$%
+        \footnote{
+            Similarly to a Riemannian metric, but the positive-definite
+            criterion is relaxed to non-degeneracy.
+        }
+        such that for every point $p\in{X}$ there is a chart
+        $(x_{1},\,\dots,\,x_{n},\,t)$ about $p$ such that:
+        \begin{equation}
+            g=-\textrm{d}t^{2}+\sum_{k=0}^{n}\textrm{d}x_{n}^{2}
+        \end{equation}
+        The null-vectors $v\in{T}_{x}X$, tangent vectors with
+        $g_{p}(v,\,v)=0$, satisfy the equation of a cone. This
+        \textit{light-cone} splits the tangent space into three parts: the
+        cone, the exterior, and the interior. The interior of the cone consists
+        of two connected components. A \textit{spacetime} is a Lorentz manifold
+        $(X,\,g)$ with a smoothly varying choice of of these connected
+        components. This choice is called the \textit{future} direction at
+        each point. Spacetimes are the natural settings for the theory of
+        general relativity. Two points in a spacetime are
+        \textit{causally related} if there is a piece-wise smooth curve
+        connected $\gamma$ connecting them such that
+        $g_{\gamma(t)}(\gamma'(t),\,\gamma'(t))\leq{0}$ for all $t$.
+        Intuitively this means the speed of a particle travelling along $\gamma$
+        never exceeds the speed of light.
     \section{Previous Work}
         \subsection{DWEL}
             The first \textit{real} project I worked on was DWEL, the
@@ -235,16 +294,26 @@
             The bulk of my work at CAR, renamed LoCSST
             (Lowell Center for Space Science and Technology), was on
             HiT\&MIS, a spectrometer used to study the aurora borealis
-            (\cite{HiTandMIS2011}, \cite{2011AGUFMSA13B1890C},
-            \cite{2014AGUFMSA13B4000H}, \cite{2015AGUFMSA13B2369A}). The
+            (\cite{2011AGUFMSA13B1890C}, \cite{2014AGUFMSA13B4000H},
+            \cite{2015AGUFMSA13B2369A}). The
             instrument used an echelle grating to achieve a high dispersion
             order allowing several wavelengths of light to be detected and
             differentiated between. Two copies of the instrument were built
             and deployed in parallel with Dartmouth's BARREL mission in
-            Kiruna, Sweden.
+            Kiruna, Sweden. These efforts led to several talks and a
+            publication \cite{AryalHewawasamMaguire2018DerivationHitAndMIS}.
         \subsection{SPINR}
-            The final project I worked on was the analysis of data from the
-            SPINR sounding rocket mission.
+            The final project I worked on in Lowell was the analysis of data
+            from the SPINR sounding rocket mission. This is also where I began
+            to work in programming and implementing algorithms. SPINR was a very
+            interesting idea for a rocket, its detector only captured one
+            spatial dimension (the second axis used as a spectrograph). To
+            create a two-dimensional picture the rocket spun about smoothly
+            in the sky. The resulting \textit{sinograms} needed to be inverted
+            to obtain an image of the night sky. This involved working with
+            very large (26000-by-26000) matrices and delving into the theory of
+            numerical linear algebra and sparse matrix representation. The
+            final coding project was archived at MAST.
         \subsection{Cassini}
             After leaving Lowell I accepted a position at Wellesley college
             working with the team leader for the radio science portion of NASA's
@@ -274,9 +343,10 @@
             the point $(\rho_{0},\,\phi_{0})$. Assuming a cylinderically
             symmetric aperture (like the rings of Saturn),
             the transmittance function $T$ may be written
-            $T(\rho_{0},\,\phi_{0})=T(\rho_{0}$. Since the integrand involves a
+            $T(\rho_{0},\,\phi_{0})=T(\rho_{0})$. Since the integrand involves a
             term of the form
-            $\exp\big(i\psi(\rho,\,\phi,\,\rho_{0},\,\phi_{0})\big)$ we may
+            $\exp\big(i\psi(\rho,\,\phi,\,\rho_{0},\,\phi_{0})\big)$ and
+            $\psi$ grows faster-than-linear, we may
             invoke the stationary phase approximation to rid ourselves of the
             integral over the angle. The reduction leads us to:
             \begin{equation}
@@ -284,10 +354,13 @@
                     \int_{0}^{\infty}
                         \frac{1-i}{2F}
                         T(\rho)
-                        \exp\big(i\psi(\rho,\,\phi,\,\rho_{0},\,\phi_{0})\big)\;
+                        \exp\big(i\psi(\rho,\,\phi_{s},\,\rho_{0},\,\phi_{0})\big)\;
                     \textrm{d}\,\rho
             \end{equation}
-            where $F$ is the \textit{Fresnel scale}, given by the formula:
+            where $\phi_{s}$ is the stationary value of $\psi$, the solution
+            to $\partial\psi/\partial\phi=0$ as a function of the other
+            variables (computed numerically using Newton's method),
+            and $F$ is the \textit{Fresnel scale}, given by the formula:
             \begin{equation}
                 F=\Big(
                     \frac{\lambda{D}}{2}
@@ -337,7 +410,63 @@
             (my initial code from 2017 took 130+ hours on that same computer).
             This has been used to study the rings and led to
             \cite{FRENCH2023115678} and \cite{NICHOLSON2023115287}.
-    \section{Future Work}
+    \section{Miscellaneous}
+        I am very active in recreational programming and recreational
+        mathematics, and have about 30 coding repositories dedicated to various
+        projects. This includes implementing the Barnsley fern
+        \cite{MaguireBarnsleyFern}, Newton fractals
+        \cite{MaguireNewtonFractals}, variants like the
+        Halley, Householder, and Steffenson fractals
+        (\cite{MaguireHalleyFractals},
+        \cite{MaguireHouseholderFractals},
+        \cite{MaguireSteffensonFractals}), a full
+        implementation of the Hubbard-Schleicher-Sutherland algorithm
+        \cite{HSSAlgorithm2001} with optimizations, experimental ray-tracing
+        with black holes \cite{MaguireNewtonianBlackHoles}, and more
+        (See \cite{MaguireGitHub} for each repo). I am a firm believer in
+        free-software and attempt to contribute to the open source community
+        by releasing all of my coding ideas under the GNU General Public
+        License.
+        \par\hfill\par
+        My largest and most ambitious work lies in \texttt{libtmpl}. It is a
+        mathematical and scientific library written in \texttt{C} that intends
+        to do several things. Firstly, a full portable implementation of the
+        modern standards of \texttt{libm}, the standard mathematical library,
+        written with speed, accuracy, and clarity in mind. It attempts to be a
+        \textit{literate program}, written for the reader so that one may
+        more easily learn the implementation details. Time and accuracy tests
+        against other libraries (\texttt{glibc}, \texttt{openlibm}), have
+        shown that \texttt{libtmpl} is on-par with accuracy (relative error
+        of each function is in the accepted range of 1 or 2 ULP), and identical
+        or improved speeds.%
+        \footnote{%
+            A run of the time tests for the \texttt{cbrt} and \texttt{atan}
+            function show the \texttt{libtmpl} implementation is about three
+            times faster than \texttt{glibc}, while attaining 1-ULP relative
+            error (tested using \texttt{gcc-12}).
+        }
+        \par\hfill\par
+        The library started out of a need for portable complex numbers in the
+        \texttt{C} programming language, as well as vector geometry and Fourier
+        analysis, without introducing too many dependencies.
+        The \texttt{C99} standard provides complex numbers but many compilers
+        only support \texttt{C89}, most famously Microsoft's \texttt{MSVC} does
+        not support complex numbers in a standard's compliant manner. This led
+        to the initial release of \texttt{rss\_ringoccs} being unusable for
+        Windows users. The initial solution involved using several external
+        libraries, but as these third party projects changed in incompatible
+        ways, \texttt{rss\_ringoccs} kept breaking.%
+        \footnote{%
+            A phenomenon commonly known as \textit{dependency hell}.
+        }
+        And so \texttt{libtmpl} was born.
+        \par\hfill\par
+        The project has grown far beyond just the use of complex numbers and
+        astronomy. In addition to a near-complete implementation of
+        \texttt{libm} for 32-bit single, 64-bit double, 80-bit extended,
+        128-bit quadruple, and 128-bit double-double floating point numbers
+        (pending hardware), it contains routines for vector geometry,
+        polynomial manipulations, knot theory, algebra, and much more.
     \newpage
     \bibliographystyle{plain}
     \bibliography{bib.bib}
