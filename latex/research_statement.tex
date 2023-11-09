@@ -55,7 +55,7 @@
         knots if and only if there is a finite sequence of Reidemeister moves
         between them. In \cite{HassLagarias2001} Hass and Lagarias found an
         explicit upper bound for the number of moves required to convert an
-        unknot with $n$ crossings to it's usual zero-crossing diagram. The
+        unknot with $n$ crossings to its usual zero crossing diagram. The
         bound is $2^{cn}$ where $c$ is the constant $10^{11}$.%
         \footnote{%
             The authors remarked that this can be improved.
@@ -66,15 +66,15 @@
         Heinrich and Kauffman found a factorial expression that only grows
         larger than this exponential formula for knots with more than
         $10^{10^{10}}$ crossings \cite{HenrichKauffman2010Unknotting}, and
-        more recently a polynomial bounded of
+        more recently a polynomial bound of
         $(236n)^{11}$ was found by Lackenby \cite{Lackenby2015Unknotting}.
         \par\hfill\par
         A simple algorithm for detecting if any knot diagram corresponds to the
         unknot can be made using these bounds. Loop through all possible
         combinations of Reidemeister moves of length $(236n)^{11}$ for your
-        initial $n$ crossing knot diagram, and if never
+        initial $n$ crossing knot diagram and if never
         find the standard diagram for the unknot you know you've got something
-        different. In practice the universe will reset itself before you're
+        different. In practice the universe will reset itself before your
         algorithm terminates when implemented on real hardware.%
         \footnote{%
             There are around $3^{(236n)^{11}}$ combinations of Reidemeister
@@ -126,9 +126,9 @@
         The result is the disjoint union of
         cycles in the plane. $c(k)$ counts the number of cycles corresponding
         to $k$. The Jones polynomial $J(K)$ is a normalization of
-        $\langle{K}\rangle$ in terms of the writhe of $K$. The normalization
-        step runs in constant time
-        (shifting the minimum degree of the polynomial) and can be ignored for
+        $\langle{K}\rangle$ in terms of the writhe of $K$. Computing the writhe
+        is linear in time, and the normalization step runs in constant time
+        (shifting the minimum degree of the polynomial). This can be ignored for
         the purposes of algorithm design. The na\"{i}ve brute-force formula
         above yields an algorithm that is $O(2^{n})$, assuming that
         polynomial multiplication and addition run in constant time.
@@ -138,7 +138,7 @@
         \cite{ElMisieryElHorbatyJonesAlgorithm},
         \cite{Gousbet2001JonesAlgorithm},
         \cite{MustafaLevitt2018JonesAlgorithm}), and even quantum algorithms
-        exist (See \cite{JonesQuantumAlgorithm} and \cite{Lomonaco2008AQM}).
+        (See \cite{JonesQuantumAlgorithm} and \cite{Lomonaco2008AQM}).
         Implementations have been made
         and optimized (\cite{sage}, \cite{regina},
         \cite{SnapPy}, \cite{libtmpl})
@@ -239,7 +239,7 @@
             then $K$ is equivalent to $T$.
         \end{theorem}
     \section{Future Work}
-        I am currently working on two separate problems. Firstly is attempting
+        I am currently working on two separate problems. Firstly I am attempting
         to improve the \texttt{JavaKh} implementation of Bar-Natan's
         algorithm \cite{BarNatan2006FASTKH} in an effort to tabulate the
         Khovanov polynomials of all knots up to 19 crossings (up to 17 has
@@ -276,7 +276,7 @@
         \textit{causally related} if there is a piece-wise smooth curve
         $\gamma$ connecting them such that
         $g_{\gamma(t)}(\gamma'(t),\,\gamma'(t))\leq{0}$ for all $t$.
-        Intuitively this means the speed of a particle travelling along $\gamma$
+        Intuitively this means the speed of a particle traveling along $\gamma$
         never exceeds the speed of light.
         \par\hfill\par
         For appropriate spacetimes (globally hyperbolic) $X$, causality can be
@@ -284,25 +284,26 @@
         in a globally hyperbolic space corresponds naturally to the
         spherical cotangent bundle $ST^{*}M$ of a \textit{Cauchy surface} $M$,
         a particular co-dimension 1 submanifold of the spacetime, and the
-        \textit{sky} of a point $p$ is given by the fiber of the canoical
+        \textit{sky} of a point $p$ is given by the fiber of the canonical
         projection $\pi:ST^{*}M\rightarrow{M}$. Topologically these skies are
         spheres, and the question of causality can be reduced to
         \textit{Legendrian linking} of the skies of points. This is the
-        Legendrian Low conjecture, proved by Chernov and Nemirovski in 2008.
+        Legendrian Low conjecture, proved by Chernov and Nemirovski in 2008
+        \cite{ChernovNemirovski2010LowConj}.
         \par\hfill\par
         Knot theory has found its way into Lortentz geometry in other ways.
         The linking number, a famous invariant of links dating back to Gauss,
         has been generalized by the \textit{affine linking number} to the
         $(n-1)$ spheres in the spherical cotangent bundle of an $n$ dimensional
-        manifold, and these spheres need not be zero homologous.
-        In 2004 Chernov and Rudyak used this to prove a causal
+        manifold, and these spheres need not be zero homologous
+        \cite{ChernovRudyak2003AffineLinkingGeneralTheory}.
+        In \cite{ChernovRudyak2002AffineLinkingAndCausality}
+        Chernov and Rudyak used this to prove a causal
         relation between points in a spacetime in regards to this invariant.
         In my current work I am trying to expand this to count the number of
         times an observer may see a particular point in a space time. That is,
         using this invariant to count the number of light rays between
         causal points.
-        \par\hfill\par
-        \textbf{TODO:} Add references for the previous paragraphs.
     \section{Previous Work}
         \subsection{DWEL}
             The first \textit{real} project I worked on was DWEL, the
