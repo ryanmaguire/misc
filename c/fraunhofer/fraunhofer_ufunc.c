@@ -44,7 +44,7 @@ fraunf(char **args, const npy_intp *dims, const npy_intp* steps, void* data)
 
     /*  Extract input data and convert to appropriate types. First is the     *
      *  location on the x axis for the points in the array.                   */
-    const float *x = (const float *)args[0];
+    const float * const x = (const float *)args[0];
 
     /*  Location of the observer on the z-axis.                               */
     const float z = *(const float *)args[1];
@@ -61,25 +61,17 @@ fraunf(char **args, const npy_intp *dims, const npy_intp* steps, void* data)
     /* The output is a pointer to a float, an array for the intensity.        */
     float *out = (float *)args[5];
 
-    /*  Step sizes for the input and output data.                             */
-    const npy_intp x_step = steps[0];
-    const npy_intp out_step = steps[1];
-
     /*  Loop over the data and compute the diffraction pattern.               */
     for (n = zero; n < n_elements; ++n)
     {
         /*  libtmpl has the routine to compute the diffraction pattern.       */
-        *out = tmpl_Float_Fraunhofer_Diffraction_Double_Slit(
-            *x,         /*  Location of the point of interest on the x-axis.  */
+        out[n] = tmpl_Float_Fraunhofer_Diffraction_Double_Slit(
+            x[n],       /*  Location of the point of interest on the x-axis.  */
             z,          /*  Vertical distance to the observer.                */
             width,      /*  Width of the individual slits.                    */
             distance,   /*  Distance between the two slits.                   */
             lambda      /*  The wavelength of the incident light.             */
         );
-
-        /*  Increment pointers to the next element in the array.              */
-        x += x_step;
-        out += out_step;
     }
 }
 /*  End of fraunf.                                                            */
@@ -95,7 +87,7 @@ fraund(char **args, const npy_intp *dims, const npy_intp* steps, void* data)
 
     /*  Extract input data and convert to appropriate types. First is the     *
      *  location on the x axis for the points in the array.                   */
-    const double *x = (const double *)args[0];
+    const double * const x = (const double *)args[0];
 
     /*  Location of the observer on the z-axis.                               */
     const double z = *(const double *)args[1];
@@ -112,25 +104,17 @@ fraund(char **args, const npy_intp *dims, const npy_intp* steps, void* data)
     /* The output is a pointer to a double, an array for the intensity.       */
     double *out = (double *)args[5];
 
-    /*  Step sizes for the input and output data.                             */
-    const npy_intp x_step = steps[0];
-    const npy_intp out_step = steps[1];
-
     /*  Loop over the data and compute the diffraction pattern.               */
     for (n = zero; n < n_elements; ++n)
     {
         /*  libtmpl has the routine to compute the diffraction pattern.       */
-        *out = tmpl_Double_Fraunhofer_Diffraction_Double_Slit(
-            *x,         /*  Location of the point of interest on the x-axis.  */
+        out[n] = tmpl_Double_Fraunhofer_Diffraction_Double_Slit(
+            x[n],       /*  Location of the point of interest on the x-axis.  */
             z,          /*  Vertical distance to the observer.                */
             width,      /*  Width of the individual slits.                    */
             distance,   /*  Distance between the two slits.                   */
             lambda      /*  The wavelength of the incident light.             */
         );
-
-        /*  Increment pointers to the next element in the array.              */
-        x += x_step;
-        out += out_step;
     }
 }
 /*  End of fraund.                                                            */
@@ -146,7 +130,7 @@ fraunld(char **args, const npy_intp *dims, const npy_intp* steps, void* data)
 
     /*  Extract input data and convert to appropriate types. First is the     *
      *  location on the x axis for the points in the array.                   */
-    const long double *x = (const long double *)args[0];
+    const long double * const x = (const long double *)args[0];
 
     /*  Location of the observer on the z-axis.                               */
     const long double z = *(const long double *)args[1];
@@ -163,25 +147,17 @@ fraunld(char **args, const npy_intp *dims, const npy_intp* steps, void* data)
     /* The output is a pointer to a double, an array for the intensity.       */
     long double *out = (long double *)args[5];
 
-    /*  Step sizes for the input and output data.                             */
-    const npy_intp x_step = steps[0];
-    const npy_intp out_step = steps[1];
-
     /*  Loop over the data and compute the diffraction pattern.               */
     for (n = zero; n < n_elements; ++n)
     {
         /*  libtmpl has the routine to compute the diffraction pattern.       */
-        *out = tmpl_LDouble_Fraunhofer_Diffraction_Double_Slit(
-            *x,         /*  Location of the point of interest on the x-axis.  */
+        out[n] = tmpl_LDouble_Fraunhofer_Diffraction_Double_Slit(
+            x[n],       /*  Location of the point of interest on the x-axis.  */
             z,          /*  Vertical distance to the observer.                */
             width,      /*  Width of the individual slits.                    */
             distance,   /*  Distance between the two slits.                   */
             lambda      /*  The wavelength of the incident light.             */
         );
-
-        /*  Increment pointers to the next element in the array.              */
-        x += x_step;
-        out += out_step;
     }
 }
 /*  End of fraund.                                                            */
