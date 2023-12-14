@@ -1,0 +1,8 @@
+The linking number (lk) is a well-known invariant
+of links dating back to Gauss. This notion has been
+generalized to non-zero-homologous (n-1) spheres in the unit
+spherical tangent bundle of an n-manifold by the affine linking
+number (alk). In 2004 Chernov and Rudyak used this to
+determine when points in a manifold are causally related.
+We'll discuss expanding this idea to detecting the number
+of light-rays between observers in a spacetime.

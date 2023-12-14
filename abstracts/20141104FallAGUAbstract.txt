@@ -1,0 +1,29 @@
+HiT&MIS: Instrumentation for Auroral and Ionospheric Airglow Studies
+Hewawasam, K., Maguire, R., Chakrabarti, S., Cook, T., Baumgardner, J. L.
+
+We have developed a high-throughput imaging spectrograph
+that uses an echelle grating operating at a high
+dispersion order to observe extended sources such as
+atmospheric airglow and auroral emissions at high
+spectral resolution. Instead of the conventional
+single slit this instrument uses four with appropriate
+foreoptics to image a long, narrow field of view of
+approximately 0.1 × 50 deg. By using interference filters
+for order sorting, this instrument can simultaneously
+observe multiple spectral features located anywhere in
+the visible band (approximately 300 to 1000 nm) at
+high resolution. The current implementation images
+the scene at 6 wavelengths
+(427.8, 486.1, 557.7, 630.0, 656.3 and 777.4 nm), but
+the flexibility of the design of the instrument allows
+varying the wavelengths of interest with minimal
+modifications. We have constructed two spectrographs
+to be located at different geomagnetic locations. This
+will enable tomography of atmospheric phenomena for
+full 3-D rendering of the volume emission. We will
+combine HiT&MIS data with data from LITES, GROUP-C
+(on ISS) and other ground based sources such as GIRO,
+HiTIES, HIRISE and CHIMES along with the 13 all-sky
+imagers operated by Boston University to form a
+more complete picture of the ionosphere.
+This work is supported by the NSF grant AGS1315354
