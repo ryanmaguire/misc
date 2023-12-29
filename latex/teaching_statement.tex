@@ -30,7 +30,7 @@
 \begin{document}
     \maketitle
     In the U.S. many students are (erroneously) convinced that
-    mathematics is a game of mesmerization, using the correct formula in the
+    mathematics is a game of memorization, using the correct formula in the
     correct place to get the correct answer. They then tend to \textit{hate}
     mathematics with a passion. This is not entirely their fault. To paraphrase
     Edward Frenkel,
@@ -39,8 +39,9 @@
     students that mathematics is not \textit{painting a fence}, but rather
     a collection of \textit{works of art}.
     \par\hfill\par
-    This is a surprisingly easy task, you simply need to have the right
-    \textit{painting} at hand. A pre-calculus student who knows about complex
+    In many instances this can be a surprisingly easy task, you simply need to
+    have the right \textit{painting} at hand.
+    A pre-calculus student who knows about complex
     numbers (usually taught in U.S. high schools) and function compositions
     (taught in a pre-calculus course) has all of the tools needed to understand
     the construction of the beautiful Glynn fractal, a variant of the
@@ -97,21 +98,22 @@
     (with the standard Euclidean metric) we can make this far more concrete if
     we use the Euclidean plane as our motivating example. Given any closed
     regions $\mathcal{C}$ and $\mathcal{D}$ that are themselves the finite
-    union of closed polygonal regions, it becomes a straight-forward
+    union of closed polygonal figures, it becomes a straight-forward
     calculation to compute
     $\textrm{dist}\big((x,\,y),\,\mathcal{C}\big)$ and
-    $\textrm{dist}\big((x,\,y),\,\mathcal{C}\big)$, respectively, for any point
+    $\textrm{dist}\big((x,\,y),\,\mathcal{D}\big)$, respectively, for any point
     $(x,\,y)$ in the plane. We can then compute $f$ directly. Since the image
     of the function is $[0,\,1]$, to each point in the plane we can associate
-    a color which varies smoothly between red and blue pending on the value of
-    $f$. With all this in mind, the concept of
-    \textit{perfectly normal topological spaces} becomes quite visual
-    (see Fig.~\ref{fig:potato}
+    a color which varies smoothly between red and blue depending on the value of
+    $f$ at that point. That is, 0 maps to red, 1 to blue, and a continuous
+    rainbow gradient for values in between. We can construct the Chinese
+    characters for \textit{tu-dou} using polygons, and with all this in mind
+    the concept of \textit{perfectly normal topological spaces} becomes quite
+    visual (see Fig.~\ref{fig:potato}).
     \footnote{%
         Source code for this is available:
         \url{https://github.com/ryanmaguire/perfectly_normal_spaces/}
-    }).
-
+    }
     \begin{figure}
         \centering
         \resizebox{\textwidth}{!}{\includegraphics{glynn_fractal.png}}
