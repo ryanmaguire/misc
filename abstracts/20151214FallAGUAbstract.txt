@@ -1,5 +1,7 @@
-Observation of the June 22, 2015 G4 storm by HiT&MiS: an Echelle Spectrograph for Auroral and Airglow Studies
-Saurav Aryal, Kuravi Hewawasam, Ryan Maguire, Supriya Chakrabarti, Timothy Cook, Jason Martel, Jeffrey L Baumgardner
+Observation of the June 22, 2015 G4 storm by HiT&MiS:
+an Echelle Spectrograph for Auroral and Airglow Studies
+Saurav Aryal, Kuravi Hewawasam, Ryan Maguire, Supriya Chakrabarti,
+Timothy Cook, Jason Martel, Jeffrey L Baumgardner
 
 A High-Throughput and Multi-slit Imaging Spectrograph (HiT&MIS) has been
 developed by our group. The spectrograph uses an echelle grating that
