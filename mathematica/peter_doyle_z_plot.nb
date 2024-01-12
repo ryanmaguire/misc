@@ -1,0 +1,45 @@
+(******************************************************************************)
+(*                                 LICENSE                                    *)
+(******************************************************************************)
+(*  Thile file is free software: you can redistribute it and/or modify        *)
+(*  it under the terms of the GNU General Public License as published by      *)
+(*  the Free Software Foundation, either version 3 of the License, or         *)
+(*  (at your option) any later version.                                       *)
+(*                                                                            *)
+(*  Thile file is distributed in the hope that it will be useful,             *)
+(*  but WITHOUT ANY WARRANTY; without even the implied warranty of            *)
+(*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             *)
+(*  GNU General Public License for more details.                              *)
+(*                                                                            *)
+(*  You should have received a copy of the GNU General Public License         *)
+(*  along with thile file. If not, see <https://www.gnu.org/licenses/>.       *)
+(******************************************************************************)
+(*  Purpose:                                                                  *)
+(*      Code from Peter Doyle's course. Plots complex functions.              *)
+(******************************************************************************)
+
+(*  Plotting routines for functions of a complex variable.                    *)
+MakePlotX[f_, size_ : 2] := Plot[{Re[f], Im[f]}, {z, -size, size}]
+MakePlotY[f_, size_ : 2] := MakePlotX[f /. z -> I z, size]
+
+(*  This routine makes the complex plot. The color represents the argument    *)
+(*  and the intensity represents the value. White is infinite, black is zero. *)
+MakePlotZ[f_, size_ : 2, cf_ : "Automatic"] := ComplexPlot[
+    f, {z, size},
+    ImageSize -> Medium,
+    PlotLegends -> Automatic,
+    ColorFunction -> cf
+]
+
+(*  This routine creates all three plots above: The real, imaginary, and      *)
+(*  complex plots.                                                            *)
+MakeComplexPlots[f_, size_ : 2] := Column[
+    {
+        MakePlotZ[f, size],
+        MakePlotX[f, size],
+        MakePlotY[f, size]
+    }
+]
+
+(*  Test the routines. This function has roots at +/- i and a pole at 0.      *)
+MakeComplexPlots[(z^2 + 1)/z, 2]

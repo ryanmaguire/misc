@@ -1,0 +1,120 @@
+(******************************************************************************)
+(*                                 LICENSE                                    *)
+(******************************************************************************)
+(*  Thile file is free software: you can redistribute it and/or modify        *)
+(*  it under the terms of the GNU General Public License as published by      *)
+(*  the Free Software Foundation, either version 3 of the License, or         *)
+(*  (at your option) any later version.                                       *)
+(*                                                                            *)
+(*  Thile file is distributed in the hope that it will be useful,             *)
+(*  but WITHOUT ANY WARRANTY; without even the implied warranty of            *)
+(*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             *)
+(*  GNU General Public License for more details.                              *)
+(*                                                                            *)
+(*  You should have received a copy of the GNU General Public License         *)
+(*  along with thile file. If not, see <https://www.gnu.org/licenses/>.       *)
+(******************************************************************************)
+(*  Purpose:                                                                  *)
+(*      Experiments with Bar-Natan's KnotTheory` library in Mathematica.      *)
+(******************************************************************************)
+
+(*  Make sure to download the KnotTheory package first.                       *)
+<< KnotTheory`
+
+(*  The trefoil is the 3_1 knot in the Rolfsen table.                         *)
+tref := Knot[3, 1]
+
+(*  Let's test out the drawing routine. Draw the trefoil from PD code.        *)
+DrawPD[tref]
+
+(*  Simplifies the output of various Laurent polynomial computations.         *)
+GetLaurent[p_] := Expand[Together[p]]
+
+(*  Searches for knots with the same Jones polynomial as the Trefoil.         *)
+MatchesTrefoilJones[knot_] := ContainsAny[
+    {Jones[tref][t], Jones[Mirror[tref]][t]}, {Jones[knot][t]}
+]
+
+(*  Same idea, but where the input is the polynomial itself.                  *)
+SimplifiedMatchesTrefoilJones[polynomial_] := ContainsAny[
+    {Jones[tref][t], Jones[Mirror[tref]][t]}, {polynomial}
+]
+
+(*  Let's see what this gets us. Should be just the Trefoil for the entire    *)
+(*  Rolfsen table. I believe it is unknown if there are larger knots with     *)
+(*  the same Jones polynomial as the trefoil.                                 *)
+Select[AllKnots[], MatchesTrefoilJones]
+
+(*  We only need to check prime knots because the polynomial is irreducible.  *)
+Factor[Jones[tref][t]]
+
+(*  Next knot on the list. The figure-eight knot, 4_1.                        *)
+fig8 := Knot[4, 1]
+DrawPD[fig8]
+
+(*  The figure-eight is symmetric, of J(K)(q) = J(K)(q^-1).                   *)
+Jones[fig8][t]
+Factor[Jones[fig8][t]]
+
+(*  The Jones polynomial of the figure-eight is known to match the Jones      *)
+(*  polynomial of an 11-crossing knot. Let's see if we detect this.           *)
+Select[AllKnots[], Jones[#][t] == Jones[fig8][t] &]
+
+(*  The Alexandar-Conway polynomial differentiates these, however, so they    *)
+(*  are not the same topological knot. Let's check.                           *)
+Conway[Knot[4, 1]][z]
+Conway[Knot[11, NonAlternating, 19]][z]
+
+(*  So does the Khovanov polynomial.                                          *)
+Kh[Knot[4, 1]][q, t]
+Kh[Knot[11, NonAlternating, 19]][q, t]
+
+(*  And let's see what this beast looks like.                                 *)
+DrawPD[Knot[11, NonAlternating, 19]]
+
+(*  The Jones polynomial is indeed the same.                                  *)
+Jones[Knot[11, NonAlternating, 19]][t]
+
+(*  Another known collision of the Jones polynomial.                          *)
+Jones[Mirror[TorusKnot[5, 2]]][t]
+Jones[Knot[10, 132]][t]
+
+(*  However, these two also have the same Alexander-Conway polynomial.        *)
+Conway[Mirror[TorusKnot[5, 2]]][z]
+Conway[Knot[10, 132]][z]
+
+(*  Even their HOMFLY-PT polynomials are the same!                            *)
+HOMFLYPT[Mirror[TorusKnot[5, 2]]][q, t]
+HOMFLYPT[Knot[10, 132]][q, t]
+
+(*  But their Khovanov polynomials differ.                                    *)
+Kh[TorusKnot[5, 2]][q^-1, t^-1]
+Kh[Knot[10, 132]][q, t]
+
+(*  Let's see if the Euler characteristic recovers the Jones polynomial.      *)
+Kh[TorusKnot[5, 2]][q, -1]
+Expand[Jones[TorusKnot[5, 2]][q^2] * (q + q^-1)]
+
+(*  Routine for finding knots that may have the same Jones polynomial as a    *)
+(*  Torus knot T(p, q). It will also just find the torus knots, too.          *)
+IsMaybeTorusKnotJones[knot_] := Length[
+    MonomialList[
+        GetLaurent[(1 - t^2)*Jones[knot][t]], 
+        {t, t^-1}
+    ]
+] == 4
+
+(*  Let's see what we find. Should find the trefoil, cinquefoil, and          *)
+(*  septafoil, at a minimum, but these are already torus knots.               *)
+Select[AllKnots[], IsMaybeTorusKnotJones]
+
+(*  Let's see what we have here.                                              *)
+GetLaurent[Jones[Knot[9, 42]][q]]
+GetLaurent[Jones[Knot[11, Alternating, 367]][q]]
+Jones[TorusKnot[11, 2]][q]
+Jones[Knot[11, Alternating, 367]][q]
+Conway[TorusKnot[11, 2]][z]
+Conway[Knot[11, Alternating, 367]][z]
+HOMFLYPT[Knot[11, Alternating, 367]][a, z]
+HOMFLYPT[TorusKnot[11, 2]][a, z]
+GetLaurent[Jones[Knot[11, NonAlternating, 19]][t]]
