@@ -1,0 +1,19 @@
+Relative Strengths of Knot Invariants by Experiment
+
+Four knot polynomials have been well studied by
+topologists, graph theorists, and algebraists alike:
+The Alexander, Jones, HOMFLY-PT, and Khovanov polynomials.
+It is known that the Khovanov polynomial is "stronger"
+than the Jones polynomial and similarly one may state
+that HOMFLY-PT is stronger than both the Alexander and
+Jones polynomials. No comparison can be made between
+the Jones and Alexander polynomials since there are
+families of knots with identical Alexander polynomials
+but distinct Jones polynomials, and vice-versa, but
+experiment tells us the Jones polynomial is stronger,
+on average, at distinguishing knots. We have tabulated
+the Alexander, Jones, and HOMFLY-PT polynomials for all
+knots up to 19 crossings, and the Khovanov polynomial
+for up to 17 crossings. Using this we can experiment on the
+relative strengths of these knot invariants and generate
+statistics on them.
