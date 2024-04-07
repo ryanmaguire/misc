@@ -1,0 +1,18 @@
+Knot theory is a challenging subject when it comes to
+computation, several invariants are known to have NP-Hard complexities.
+One such invariant, Khovanov homology, has been increasingly
+important in the past few decades, in particular for its
+ability to uniquely distinguish certain knots such as the
+unknot, left and right handed trefoils, the figure-eight,
+and the cinquefoil. Another subject that has been intruding into knot
+theory is contact topology, the odd dimensional analogue of symplectic
+topology, both of which have their roots in Hamiltonian mechanics.
+The aforementioned knots are the simplest of the Legendrian simple knots,
+a particular family of knots that have nice contact properties, leading one
+to conjecture that Khovanov homology may detect all such knots.
+By examining all prime knots up to 19 crossings we are able to provide
+strong numerical support that this conjecture may be true.
+In the process of doing so we've tabulated the Khovanov homology of
+all prime knots up to 17 crossings and the Jones and HOMFLY-PT polynomials
+of all prime knots up to 19 crossings. We'll discuss some of the algorithms
+and implementations used to tackle these hard computations.

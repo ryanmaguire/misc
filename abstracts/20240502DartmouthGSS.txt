@@ -1,0 +1,13 @@
+Title:
+How to Compute Sine of 10^100
+Abstract:
+libm, the standard C library for mathematical functions,
+requires implementations for the trigonometric functions.
+The difficulty of computing the remainder after division
+by a transcendental number, like pi, led to early
+implementations having poor or completely gibberish results
+for large inputs. One infamous example threw an error for
+values |x| > 26. Modern implementations can readily handle
+values up to 10^308, the maximum for 64-bit floating point
+numbers. We'll talk about how these implementations work
+and how to correctly compute the sine of large numbers.

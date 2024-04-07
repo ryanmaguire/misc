@@ -1,0 +1,15 @@
+Title:
+Double, double, toil and trouble: The mathematics of double-double arithmetic.
+Abstract:
+The standard IEEE-754 double precision floating point arithmetic
+allows for 52 significant bits, 53 if one includes the implicit
+leading bit past the binary point. Translating this to decimal
+one can expect between 15 and 16 decimals of accuracy in their
+computations. Mathematical computations may need more than
+this, say, in the rendering of the Mandelbrot set. Arbitrary
+precision arithmetic is dreadfully slow, and quadruple precision
+isn't readily available on most common architectures. The solution
+is double-double arithmetic. The idea dates back to at least
+the 1970s but is still actively researched and experimented with.
+In this talk we'll go over the original Dekker algorithms and
+discuss the implementation of double-double.
