@@ -1,3 +1,4 @@
+abstract id.SA13B-4000
 HiT&MIS: Instrumentation for Auroral and Ionospheric Airglow Studies
 Hewawasam, K., Maguire, R., Chakrabarti, S., Cook, T., Baumgardner, J. L.
 
