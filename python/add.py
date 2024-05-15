@@ -18,6 +18,10 @@
 #   Purpose:                                                                   #
 #       Provides an example of using ctypes, and showing some of the benefits  #
 #       of compiler optimizations.                                             #
+#   Notes:                                                                     #
+#       To compile the C function, type:                                       #
+#           gcc -O3 -flto add.c -shared -o add.so                              #
+#       Remove -O3 and -flto if you do not want optimizations.                 #
 ################################################################################
 #   Author:     Ryan Maguire                                                   #
 #   Date:       2024/05/15                                                     #
