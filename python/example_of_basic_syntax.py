@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Provides an example of basic Python syntax.                            #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2024/05/15                                                     #
+################################################################################
 """
 
 print("This line will be printed.")

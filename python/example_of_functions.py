@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Provides an example of creating and using functions.                   #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2024/05/15                                                     #
+################################################################################
 """
 
 # Functions are created using 'def'.

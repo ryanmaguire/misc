@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Provides an example of managing dictionaries in Python.                #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2024/05/15                                                     #
+################################################################################
 """
 
 # Syntax for creating a dictionary.

@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Provides an example of using multiple functions in Python.             #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2024/05/15                                                     #
+################################################################################
 """
 
 def list_benefits():

@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Provides an example of creating floating point numbers.                #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2024/05/15                                                     #
+################################################################################
 """
 
 # Using decimals creates floats.

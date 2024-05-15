@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Provides an example of using lists and conditionals in Python.         #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2024/05/15                                                     #
+################################################################################
 """
 
 NAME, NUMBER = 'Bob Guy', 42

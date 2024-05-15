@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Provides an example of the syntax for a dictionary in Python.          #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2024/05/15                                                     #
+################################################################################
 """
 
 # A dictionary is like a simplified class. It has "attributes" in the form of
