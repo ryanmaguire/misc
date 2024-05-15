@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Provides an example of using arithmetic operators in Python.           #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2024/05/15                                                     #
+################################################################################
 """
 
 # We can use basic addition, multiplication, and division.
