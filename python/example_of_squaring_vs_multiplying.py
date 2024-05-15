@@ -104,5 +104,5 @@ print(multiply()) # 0.42986035346984863
 
 # The ratios for the times are:
 #   square: 61.72689059123944
-#   square_float: 63.93114406779661
-#   multiply: 25.931103361885093
+#   square_float: 50.191080414405526
+#   multiply: 36.49948377431828
