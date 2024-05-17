@@ -18,6 +18,9 @@
 !       Time test C vs Fortran with something simple. Computes sqrt(x) for a   !
 !       large set of real numbers at double precision.                         !
 !------------------------------------------------------------------------------!
+!   Author:     Ryan Maguire                                                   !
+!   Date:       2023/10/08                                                     !
+!------------------------------------------------------------------------------!
 PROGRAM MAIN
     IMPLICIT NONE
     REAL, ALLOCATABLE :: X(:)

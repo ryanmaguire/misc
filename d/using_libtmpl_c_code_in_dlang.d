@@ -18,6 +18,9 @@
  *      Shows how to use C code in the D programming language. In particular, *
  *      a very small wrapper is provided for libtmpl's complex and vector     *
  *      structs and example code is given.                                    *
+ ******************************************************************************
+ *  Author:     Ryan Maguire                                                  *
+ *  Date:       January 29, 2024                                              *
  ******************************************************************************/
 import std.stdio : writeln;
 
