@@ -15,6 +15,9 @@
 #   You should have received a copy of the GNU General Public License          #
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/09                                                     #
+################################################################################
 checkserver() {
     rsync -avhxn --progress --delete /path/to/site_data/ user@server:public_html/
 }

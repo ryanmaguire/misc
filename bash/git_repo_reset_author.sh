@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Script to reset the author and emails in a git repo.                   #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/14                                                     #
+################################################################################
 git filter-branch --env-filter '
 OLD_EMAIL="wrong@email.com"
 CORRECT_NAME="ryanmaguire"

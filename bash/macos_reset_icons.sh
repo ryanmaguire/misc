@@ -20,6 +20,9 @@
 #       would consistently glitch for reasons unknown to me. This fixed that,  #
 #       temporarily (the issue may return after logging out then back in).     #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/09                                                     #
+################################################################################
 find /private/var/folders/ -name com.apple.iconservices -exec rm -rf {} \;
 rm -rf /Library/Caches/com.apple.iconservices.store
 killall Dock

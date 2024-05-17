@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Replaces symlinks with hard copies.                                    #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/09                                                     #
+################################################################################
 lnmystuff() {
     find ./ -type l -exec sh -c 'for i in "$@"; do cp --preserve --remove-destination "$(readlink -f "$i")" "$i"; done' sh {} +
 }

@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #      	Old script for generating 2D figures I wrote in asymptote.             #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2024/02/04                                                     #
+################################################################################
 export ASYMPTOTE_DIR=$(pwd)
 for x in $(find 2d/ -name "*.asy"); do
     filename=$(basename $x .asy)

@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Old script for cleaning out the asymptote directories.                 #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/09                                                     #
+################################################################################
 cd asymptote/
 
 for folder in */ ; do

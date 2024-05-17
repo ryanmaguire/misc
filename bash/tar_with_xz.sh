@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Creates a compressed tape archive using tar and xz.                    #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/09                                                     #
+################################################################################
 tarmystuff() {
     TARFIL="${1}.tar.xz"
     DIR="${1}"

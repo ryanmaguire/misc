@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Script for deleting unmatched files in a git repo.                     #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2024/04/29                                                     #
+################################################################################
 gitfiles=$@
 git filter-branch \
     --index-filter \

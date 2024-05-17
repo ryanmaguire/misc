@@ -20,6 +20,9 @@
  *      compiler will optimize the for-loop away and just return the input.   *
  *      This makes an O(n) computation into O(1). The time test in add.py     *
  *      demonstrates this very well.                                          *
+ ******************************************************************************
+ *  Author:     Ryan Maguire                                                  *
+ *  Date:       May 15, 2023                                                  *
  ******************************************************************************/
 
 /*  The function we're defining.                                              */

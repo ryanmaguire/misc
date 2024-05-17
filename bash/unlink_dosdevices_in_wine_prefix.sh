@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Unlinks some of the symlinks in the dosdevices folder of a wine prefix.#
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/09                                                     #
+################################################################################
 unlinkmystuff() {
     unlink com1
     unlink com2

@@ -19,6 +19,9 @@
 #       Old script for creating the Makefiles and figures written in asymptote.#
 #       macOS version. This isn't used anymore.                                #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/09                                                     #
+################################################################################
 Destination="../../images/"
 
 # Make the asymptote files.

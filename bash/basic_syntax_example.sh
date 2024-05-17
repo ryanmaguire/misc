@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Old "Hello, World" example testing some Bash features.                 #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/09                                                     #
+################################################################################
 printf "\nHello, World!\nMy name is %s!\n" "$1"
 
 if [ ! -d "$2" ]; then

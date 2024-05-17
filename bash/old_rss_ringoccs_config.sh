@@ -27,6 +27,9 @@
 #       anything. The present version of rss_ringoccs no longer requires       #
 #       nearly as many dependencies and this script is no longer used.         #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2024/04/29                                                     #
+################################################################################
 if [ ! "$BASH_VERSION" ] ; then
         echo "Please use BASH to run this script ($0)" 1>&2
         exit 1

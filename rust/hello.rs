@@ -13,6 +13,9 @@
  *                                                                            *
  *  You should have received a copy of the GNU General Public License         *
  *  along with this file.  If not, see <https://www.gnu.org/licenses/>.       *
+ ******************************************************************************
+ *  Author:     Ryan Maguire                                                  *
+ *  Date:       October 9, 2023                                               *
  ******************************************************************************/
 
 /*  Function for printing a simple message. Demonstrates basic syntax.        */

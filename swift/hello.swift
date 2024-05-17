@@ -13,6 +13,9 @@
  *                                                                            *
  *  You should have received a copy of the GNU General Public License         *
  *  along with this file.  If not, see <https://www.gnu.org/licenses/>.       *
+ ******************************************************************************
+ *  Author:     Ryan Maguire                                                  *
+ *  Date:       October 8, 2023                                               *
  ******************************************************************************/
 
 /*  sqrt function is provided here. Different import for macOS vs. Linux.     */

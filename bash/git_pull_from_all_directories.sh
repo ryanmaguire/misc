@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Runs "git pull" for all subdirectories in a given folder.              #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/09                                                     #
+################################################################################
 syncmystuff() {
     for x in ./*/; do
         cd $x

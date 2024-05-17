@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Poorly written script I used to clean up a git repo.                   #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/14                                                     #
+################################################################################
 git filter-repo --path-glob '*.jar' --invert-paths --force
 git filter-repo --path-glob '*.so' --invert-paths --force
 git filter-repo --path-glob '*.pyc' --invert-paths --force

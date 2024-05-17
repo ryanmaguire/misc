@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Script for checking all compile options with libtmpl.                  #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/09                                                     #
+################################################################################
 COMPILER_LIST="gcc"
 
 if command -v clang &> /dev/null; then

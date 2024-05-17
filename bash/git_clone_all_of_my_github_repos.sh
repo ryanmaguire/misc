@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #       Clones all of my github repos into the current directory.              #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2023/10/10                                                     #
+################################################################################
 GITHUB_USERNAME=ryanmaguire
 curl "https://api.github.com/users/$GITHUB_USERNAME/repos?per_page=1000" | \
     grep -w clone_url | \

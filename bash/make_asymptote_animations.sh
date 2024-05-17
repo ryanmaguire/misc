@@ -18,6 +18,9 @@
 #   Purpose:                                                                   #
 #      	Old script for generating animations I made in asymptote.              #
 ################################################################################
+#   Author:     Ryan Maguire                                                   #
+#   Date:       2024/02/04                                                     #
+################################################################################
 export ASYMPTOTE_DIR=$(pwd)
 for x in $(find asymptote/ -name *.asy -path "asymptote/animations/*"); do
     filename=$(basename $x .asy)
