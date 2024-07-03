@@ -1,0 +1,61 @@
+<!--
+                                    LICENSE
+
+    This file is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This file is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this file.  If not, see <https://www.gnu.org/licenses/>.
+
+    Purpose:
+        Provides a basic example of HTML syntax mixed with JavaScript.
+        The PNG used in this example was provided by the tutorials on
+        the W3 website. This code is a modification of those examples.
+
+    Author:     Ryan Maguire
+    Date:       July 3, 2024
+-->
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>
+            Using JavaScript with HTML
+        </h2>
+
+        <p>
+            JavaScript can change HTML attribute values.
+            </br>
+            We can use it to change the value of a picture.
+        </p>
+
+        <!-- This button changes the value of the light bulb. -->
+        <button
+            onclick = "
+                document.getElementById('light_bulb').src = 'bulb_on.png'
+            "
+        >
+            Turn Light On
+        </button>
+
+        <img
+            id = "light_bulb"
+            src = "bulb_off.png"
+            style = "width:100px"
+        >
+
+        <button
+            onclick = "
+                document.getElementById('light_bulb').src = 'bulb_off.png'
+            "
+        >
+            Turn Light Off
+        </button>
+    </body>
+</html>

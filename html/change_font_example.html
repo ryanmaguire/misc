@@ -1,0 +1,48 @@
+<!--
+                                    LICENSE
+
+    This file is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This file is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this file.  If not, see <https://www.gnu.org/licenses/>.
+
+    Purpose:
+        Provides a basic example of HTML syntax mixed with JavaScript.
+
+    Author:     Ryan Maguire
+    Date:       July 2, 2024
+-->
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>
+            Using JavaScript with HTML.
+        </h2>
+
+        <p id = "text">
+            Click the button to change the font size.
+        </p>
+
+        <!-- This button uses JavaScript to change the font size. -->
+        <button
+            type = "button"
+            onclick = "
+                // Change the font size.
+                document.getElementById('text').style.fontSize = '24px';
+
+                // Change the text.
+                document.getElementById('text').innerHTML = 'Hello, World!';
+            "
+        >
+            Click Me!
+        </button>
+    </body>
+</html> 
