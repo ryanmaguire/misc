@@ -80,9 +80,9 @@ static int get_color(double x)
 }
 
 /*  Writes a gray scale color to a PGM file.                                  */
-void write_color(FILE *fp, double x)
+static void write_color(FILE *fp, double x)
 {
-    const unsigned int val = get_color(x);
+    const int val = get_color(x);
     fputc(val, fp);
 }
 
