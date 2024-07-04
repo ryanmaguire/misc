@@ -31,7 +31,7 @@
 /*  The algorithm found in K&R "The C Programming Language."                  */
 #if ALG == KR
 
-unsigned int hamming_weight(unsigned int val)
+static unsigned int hamming_weight(unsigned int val)
 {
     unsigned int count = 0U;
     for (; val; ++count)
@@ -42,8 +42,8 @@ unsigned int hamming_weight(unsigned int val)
 
 /*  The naive "by-hand" algorithm, counting the individual bits.              */
 #elif ALG == NAIVE
-
-unsigned int hamming_weight(unsigned int val)
+static
+static unsigned int hamming_weight(unsigned int val)
 {
     unsigned int result = 0U;
 
@@ -59,7 +59,7 @@ unsigned int hamming_weight(unsigned int val)
 /*  GCC built-in function, popcount, computes the Hamming weight.             */
 #elif ALG == GCC
 
-unsigned int hamming_weight(unsigned int val)
+static unsigned int hamming_weight(unsigned int val)
 {
     return __builtin_popcount(val);
 }
@@ -69,7 +69,7 @@ unsigned int hamming_weight(unsigned int val)
 
 #include <intrin.h>
 
-unsigned int hamming_weight(unsigned int val)
+static unsigned int hamming_weight(unsigned int val)
 {
     return __popcnt(val);
 }
@@ -82,6 +82,6 @@ unsigned int hamming_weight(unsigned int val)
 /*  Simple test. The Hamming weight of 7 is 3. 7 = 111_2, three 1's.          */
 int main(void)
 {
-	printf("%u\n", hamming_weight(7U));
+    printf("%u\n", hamming_weight(7U));
     return 0;
 }
