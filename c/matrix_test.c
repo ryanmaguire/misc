@@ -60,6 +60,19 @@ FAIL:
     return out;
 }
 
+static void destroy_matrix(struct matrix * const mat)
+{
+    if (!mat)
+        return;
+
+    if (mat->data)
+        free(mat->data);
+
+    mat->data = NULL;
+    mat->width = 0U;
+    mat->height = 0U;
+}
+
 static void print_matrix(const struct matrix * const mat)
 {
     unsigned int x, y;
@@ -77,7 +90,7 @@ int main(void)
 {
     const double a1[3] = {1.0, 2.0, 3.0};
     const double a2[3] = {4.0, 5.0, 6.0};
-    const struct matrix mat = create_matrix(3, 2, a1, a2);
+    struct matrix mat = create_matrix(3, 2, a1, a2);
 
     /*  This works with C99 compatible compilers.
      *      struct matrix mat = create_matrix(
@@ -85,5 +98,6 @@ int main(void)
      *      );
      */
     print_matrix(&mat);
+    destroy_matrix(&mat);
     return 0;
 }
