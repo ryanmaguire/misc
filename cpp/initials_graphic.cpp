@@ -15,8 +15,8 @@
  *  along with this file.  If not, see <https://www.gnu.org/licenses/>.       *
  ******************************************************************************
  *  Purpose:                                                                  *
- *      Detailed and expanded version of the famous raytracer on a bussiness  *
- *      card. This does not fit on a bussiness card, but hopefully it is      *
+ *      Detailed and expanded version of the famous raytracer on a business   *
+ *      card. This does not fit on a business card, but hopefully it is       *
  *      more readable.                                                        *
  ******************************************************************************
  *  Author:     Ryan Maguire                                                  *

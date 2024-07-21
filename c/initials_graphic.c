@@ -15,7 +15,7 @@
  *  along with this file.  If not, see <https://www.gnu.org/licenses/>.       *
  ******************************************************************************
  *  Purpose:                                                                  *
- *      Modification of the famous raytracer on a bussiness card. Uses        *
+ *      Modification of the famous raytracer on a business card. Uses         *
  *      libtmpl to handle all of the vector arithmetic and mathematics.       *
  ******************************************************************************
  *  Author:     Ryan Maguire                                                  *
