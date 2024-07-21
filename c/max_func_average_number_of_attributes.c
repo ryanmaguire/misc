@@ -89,7 +89,7 @@ static double real_rand(void)
     /*  Use the rand function in stdlib.h to get a non-negative pseudo-random *
      *  integer, and divide by the RAND_MAX macro to ensure the outcome       *
      *  falls within the range [0, 1].                                        */
-    int n_rand = rand();
+    const int n_rand = rand();
     return (double)n_rand / (double)RAND_MAX;
 }
 /*  End of real_rand definition.                                              */
