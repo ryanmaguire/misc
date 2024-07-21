@@ -21,6 +21,10 @@
 ;   Author:     Ryan Maguire                                                   ;
 ;   Date:       2018                                                           ;
 ;------------------------------------------------------------------------------;
+
+; Tells the compiler that integers should be 32 bits, not 16.
+COMPILE_OPT IDL2
+
 A = DBLARR(25600, 25600)
 B = DBLARR(25600)
 

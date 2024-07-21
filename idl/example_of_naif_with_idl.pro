@@ -18,6 +18,9 @@
 ;   Date:       2018                                                           ;
 ;------------------------------------------------------------------------------;
 
+; Tells the compiler that integers should be 32 bits, not 16.
+COMPILE_OPT IDL2
+
 ; Import NAIF Leap Second counter.
 CSPICE_FURNSH, 'naif0012.tls'
 
