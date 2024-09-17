@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     if (argc == 2)
         sprintf(command1, "pdflatex %s", argv[1]);
     else
-        sprintf(command1, "pdflatex -shell-escape %s", argv[2]);
+        sprintf(command1, "pdflatex --shell-escape %s", argv[2]);
 
     sprintf(command2, "bibtex %s", argv[1]);
 
