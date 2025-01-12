@@ -16,16 +16,38 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Author:     Ryan Maguire                                                   #
-#   Date:       2023/10/09                                                     #
+#   Date:       2025/01/12                                                     #
 ################################################################################
-checkserver() {
-    rsync                           \
-        -avhxn --progress --delete  \
-        /path/to/site_data/ user@server:public_html/
-}
+synctoserver() {
 
-syncserver() {
-    rsync                           \
-        -avhx --progress --delete   \
-        /path/to/site_data/ user@server:public_html/
+    # Check if we're doing a dry-run. "-n" is the option for this.
+    if [[ $# -eq 1 ]]; then
+
+        # This is a simple script, only allow "-n" as an option.
+        if [[ "$1" == "-n" ]]; then
+            ARGUMENTS="-navhx"
+
+        # Everything else is treated as an invalid argument.
+        else
+
+            # Exit with an error message.
+            echo "Invalid argument."
+            echo "Pass -n for a dry-run, no argument for a standard run."
+            return 0
+        fi
+
+    # We get here if no argument was given.
+    else
+
+        # Default arguments, standard run with rsync.
+        ARGUMENTS="-avhx"
+    fi
+
+    # Sync the data to the server.
+    rsync                                   \
+        --exclude '.Trash*'                 \
+        --exclude 'lost+found'              \
+        -e 'ssh -p 40'                      \
+        "$ARGUMENTS" --progress --delete    \
+        user@192.168.0.x:/path/to/stuff/ /path/to/stuff/
 }
