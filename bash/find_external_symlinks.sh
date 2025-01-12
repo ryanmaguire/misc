@@ -16,11 +16,11 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Purpose:                                                                   #
-#       Replaces symlinks with hard copies.                                    #
+#       Find all symlinks that point to files outside the current directory.   #
 ################################################################################
 #   Author:     Ryan Maguire                                                   #
-#   Date:       2023/10/09                                                     #
+#   Date:       2024/10/10                                                     #
 ################################################################################
-lnmystuff() {
-    find ./ -type l -exec sh -c 'for i in "$@"; do cp --preserve --remove-destination "$(readlink -f "$i")" "$i"; done' sh {} +
+findexternalsymlinks() {
+    find . -type l -exec realpath {} \; | grep -v "^$(pwd)"
 }

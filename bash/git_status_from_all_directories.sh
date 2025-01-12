@@ -16,11 +16,26 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Purpose:                                                                   #
-#       Replaces symlinks with hard copies.                                    #
+#       Runs "git status" for all subdirectories in a given folder.            #
 ################################################################################
 #   Author:     Ryan Maguire                                                   #
 #   Date:       2023/10/09                                                     #
 ################################################################################
-lnmystuff() {
-    find ./ -type l -exec sh -c 'for i in "$@"; do cp --preserve --remove-destination "$(readlink -f "$i")" "$i"; done' sh {} +
+checkmystuff() {
+    for x in ./*/; do
+        cd $x
+        if [[ -d ".git/" ]]; then
+            git status
+        fi
+
+        cd ../
+    done
+}
+
+checkallmystuff() {
+    for x in ./*/; do
+        cd $x
+        checkmystuff
+        cd ../
+    done
 }

@@ -16,11 +16,17 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Purpose:                                                                   #
-#       Replaces symlinks with hard copies.                                    #
+#       Find all files that do not have a symlink to them.                     #
 ################################################################################
 #   Author:     Ryan Maguire                                                   #
-#   Date:       2023/10/09                                                     #
+#   Date:       2025/01/12                                                     #
 ################################################################################
-lnmystuff() {
-    find ./ -type l -exec sh -c 'for i in "$@"; do cp --preserve --remove-destination "$(readlink -f "$i")" "$i"; done' sh {} +
+findnotsymlinked() {
+    SYMLINKLIST=$(find . -type l)
+    for file in $(find $1 -type f); do
+        filename=$(basename $file)
+        if [[ "$SYMLINKLIST" != *"$filename"* ]]; then
+            echo "$filename"
+        fi
+    done
 }

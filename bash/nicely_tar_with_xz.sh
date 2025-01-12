@@ -16,11 +16,13 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Purpose:                                                                   #
-#       Replaces symlinks with hard copies.                                    #
+#       Creates a compressed tape archive using tar and xz.                    #
 ################################################################################
 #   Author:     Ryan Maguire                                                   #
 #   Date:       2023/10/09                                                     #
 ################################################################################
-lnmystuff() {
-    find ./ -type l -exec sh -c 'for i in "$@"; do cp --preserve --remove-destination "$(readlink -f "$i")" "$i"; done' sh {} +
+nicelytarmystuff() {
+    TARFIL="${1}.tar.xz"
+    DIR="${1}"
+    nice -n 10 tar -c -I 'xz --memory=32GiB -9 -T0' -f $TARFIL $DIR
 }

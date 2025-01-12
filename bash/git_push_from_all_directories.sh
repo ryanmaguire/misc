@@ -16,11 +16,26 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Purpose:                                                                   #
-#       Replaces symlinks with hard copies.                                    #
+#       Runs "git push" for all subdirectories in a given folder.              #
 ################################################################################
 #   Author:     Ryan Maguire                                                   #
 #   Date:       2023/10/09                                                     #
 ################################################################################
-lnmystuff() {
-    find ./ -type l -exec sh -c 'for i in "$@"; do cp --preserve --remove-destination "$(readlink -f "$i")" "$i"; done' sh {} +
+pushmystuff() {
+    for x in ./*/; do
+        cd $x
+        if [[ -d ".git/" ]]; then
+            git push
+        fi
+
+        cd ../
+    done
+}
+
+pushallmystuff() {
+    for x in ./*/; do
+        cd $x
+        pushmystuff
+        cd ../
+    done
 }
