@@ -24,6 +24,22 @@
  *           m = 0            n = 0                                           *
  *                                                                            *
  *      That is, numbers that are both triangular numbers and pyramidal.      *
+ *      This prints out:                                                      *
+ *                                                                            *
+ *          (0, 0)                                                            *
+ *          (1, 1)                                                            *
+ *          (10, 5)                                                           *
+ *          (13, 6)                                                           *
+ *          (645, 85)                                                         *
+ *                                                                            *
+ *      By a theorem of Finkelstein and London, this is all there is:         *
+ *  References:                                                               *
+ *      1.) Finkelstein, Raphael and London, Hymie                            *
+ *          On Triangular Numbers Which Are Sums of Consecutive Squares       *
+ *          Journal of Number Theory, Vol. 4, Issue 5, Pages 455-462          *
+ *          October 1972, Elsevier                                            *
+ *      2.) OEIS Sequence A053612 (https://oeis.org/A053612)                  *
+ *      3.) OEIS Sequence A053611 (https://oeis.org/A053611)                  *
  ******************************************************************************
  *  Author:     Ryan Maguire                                                  *
  *  Date:       May 22, 2021                                                  *
