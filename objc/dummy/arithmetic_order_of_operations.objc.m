@@ -15,10 +15,10 @@
  *  along with this file.  If not, see <https://www.gnu.org/licenses/>.       *
  ******************************************************************************
  *  Purpose:                                                                  *
- *      Example of basic integer arithmetic in Objective-C (works with GCC).  *
+ *      Shows how the order of operations works in Objective-C.               *
  ******************************************************************************
  *  Author:     Ryan Maguire                                                  *
- *  Date:       March 23, 2025                                                *
+ *  Date:       March 24, 2025                                                *
  ******************************************************************************/
 #import <Foundation/Foundation.h>
 
