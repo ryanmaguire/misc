@@ -15,24 +15,40 @@
  *  along with this file.  If not, see <https://www.gnu.org/licenses/>.       *
  ******************************************************************************
  *  Purpose:                                                                  *
- *      Shows how to cast between data types in Objective-C.                  *
+ *      Shows how to use the sizeof operator in Objective-C.                  *
  ******************************************************************************
  *  Author:     Ryan Maguire                                                  *
  *  Date:       March 24, 2025                                                *
  ******************************************************************************/
 #import <Foundation/Foundation.h>
 
+/*  Simple class with some data and methods.                                  */
+@interface MyObject: NSObject
+    {
+        double *data;
+        size_t length;
+    }
+    + (double) myFunction: (double)x;
+    + (double) myOtherFunction: (double)x;
+@end
+
 int main(void)
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-    /*  Casting in Objective-C is the exact same as regular C.                */
-    const float a = 2.7;
-    const int b = (int)a;
-
-    /*  Print the results. Casting a float to an int rounds it towards zero.  */
-    NSLog(@"a = %f", a);
-    NSLog(@"b = %i", b);
+    /*  Print the size of a few data types, including an Objective-C class.   */
+    NSLog(@"sizeof(char)           = %zu", sizeof(char));
+    NSLog(@"sizeof(unsigned char)  = %zu", sizeof(unsigned char));
+    NSLog(@"sizeof(short)          = %zu", sizeof(short));
+    NSLog(@"sizeof(unsigned short) = %zu", sizeof(unsigned short));
+    NSLog(@"sizeof(int)            = %zu", sizeof(int));
+    NSLog(@"sizeof(unsigned int)   = %zu", sizeof(unsigned int));
+    NSLog(@"sizeof(long)           = %zu", sizeof(long));
+    NSLog(@"sizeof(unsigned long)  = %zu", sizeof(unsigned long));
+    NSLog(@"sizeof(float)          = %zu", sizeof(float));
+    NSLog(@"sizeof(double)         = %zu", sizeof(double));
+    NSLog(@"sizeof(long double)    = %zu", sizeof(long double));
+    NSLog(@"sizeof(MyObject)       = %zu", sizeof(MyObject));
 
     [pool drain];
     return 0;
