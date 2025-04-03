@@ -17,13 +17,13 @@
 #   Purpose:                                                                   #
 #       Draws a contour plot of z = xy in Julia using GLMakie.                 #
 #   Notes:                                                                     #
-#       1.) Andy Keavey contributed this code for MITx 18.02.1x online course  #
+#       1.) a2k42 contributed this code for MITx 18.02.1x online course        #
 #           during the Fall 2024 semester. Credit: https://github.com/a2k42.   #
 #           A few minor edits have been made from the original work.           #
 #       2.) When run at the command line, the PNG is created and saved. In     #
 #           interactive mode you may use a slider to vary the constant z plane.#
 ################################################################################
-#   Author:     Andy Keavey                                                    #
+#   Author:     a2k42                                                          #
 #   Date:       2024/08/10                                                     #
 ################################################################################
 using GLMakie
