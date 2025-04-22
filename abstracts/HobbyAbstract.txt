@@ -1,0 +1,11 @@
+Given a finite ordered set (a.k.a. a finite sequence) of distinct points in
+the plane, how can one construct a smooth curve through them? What if the curve
+is closed? We can construct C^2 curves by using Bezier cubics, but this
+requires immense effort specifying all of the control points and lining them up
+correctly to ensure there are no dents in the curve. Donald Knuth came up with
+one manner of doing this and implemented it in his metafont language, but the
+current standard was developed by John Hobby, published in Discrete and
+Computational Geometry in 1986. This method produces aesthetically pleasing
+results and is now the standard algorithm in many graphics languages like
+asympote and metapost, and support is provided for it in tikz and more. We'll
+discuss the algorithm and how to make nice mathematical drawings.
