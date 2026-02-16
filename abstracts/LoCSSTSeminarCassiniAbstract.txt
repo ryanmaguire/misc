@@ -1,0 +1,16 @@
+Launched in 1997, the Cassini spacecraft orbited
+the ringed planet Saturn for 14 years, arriving in 2004
+and finishing its Grand Finale in September 2017. During
+this period dozens of occultation events occurred where the
+rings of Saturn blocked the line of sight from the spacecraft
+to Earth. When these events took place, radio signals in the X, S, and Ka
+bands passed from Cassini through the rings and were diffracted
+on their way to the DSN stations on Earth, producing "diffraction-limit
+ring profiles" (DLPs). Using new inversion methods and improved numerical
+integration, we are now able to remove these diffraction artifacts to create
+extremely high resolution profiles (20 meters) for the rings of Saturn
+(and Uranus using Voyager data).
+
+In this talk we'll discuss the process of reconstructing these profiles from
+the radio science data and some of the surprising new results that are being
+found.
