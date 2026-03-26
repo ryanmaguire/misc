@@ -1,0 +1,208 @@
+%-----------------------------------LICENSE------------------------------------%
+%   This file is free software: you can redistribute it and/or                 %
+%   modify it under the terms of the GNU General Public License as             %
+%   published by the Free Software Foundation, either version 3 of the         %
+%   License, or (at your option) any later version.                            %
+%                                                                              %
+%   This file is distributed in the hope that it will be useful,               %
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of             %
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the              %
+%   GNU General Public License for more details.                               %
+%                                                                              %
+%   You should have received a copy of the GNU General Public License along    %
+%   with this file.  If not, see <https://www.gnu.org/licenses/>.              %
+%------------------------------------------------------------------------------%
+%       Author: Ryan Maguire                                                   %
+%       Date:   2023/10/14                                                     %
+%------------------------------------------------------------------------------%
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue}
+\title{Research Statement}
+\author{Ryan Maguire}
+\date{\today}
+
+\begin{document}
+    \maketitle
+    \section{Introduction}
+        My research interests lie in astronomy, numerical mathematics,
+        Lorentz geometry, knot theory, and spacetimes.
+        Over the last 9 years I have been working with Richard French from
+        Wellesley college analyzing the radio science data from the NASA
+        Cassini mission and the Voyage 2 spacecraft. Radio waves from these
+        spacecrafts pass through the rings of Saturn and Uranus on their way
+        to Earth creating \textit{occultation observations}
+        \cite{Marouf1982TheoryOR}. These radio waves diffract as they pass
+        through the rings, and this diffracted data is measured on Earth. We
+        can model this using the Rayleigh-Somerfeld equation:
+        \begin{equation}
+            \hat{T}(\rho_{0},\,\phi_{0})
+            =
+            \frac{\sin(B)}{i\lambda}
+            \int_{0}^{\infty}
+                \int_{0}^{2\pi}
+                    \frac{\rho}{D}
+                    T(\rho,\,\phi)
+                    \exp\big(i\psi(\rho,\,\phi,\,\rho_{0},\,\phi_{0})\big)\;
+                \textrm{d}\rho\;
+                \textrm{d}\phi
+        \end{equation}
+        where $\lambda$ is the wavelength of the incident light, $B$ is
+        the angle the ray makes with the ring plane, $(\rho_{0},\,\phi_{0})$
+        is the point of interest, $(\rho,\,\phi)$ is the dummy point of
+        integration, $T$ is the transmittance of the rings, $\psi$ is
+        the Fresnel phase, and $D$ is the distance from the spacecraft to
+        the point $(\rho_{0},\,\phi_{0})$. Following \cite{MTR86}, we reduce
+        this down to a single integral using the stationary phase approximation,
+        and then obtain an approximate inverse formula by swapping the variables
+        of integration and taking the complex conjugate of the integrand.
+        If $\phi_{s}$ denotes the stationary azimuth angle
+        (the angle with $\partial\psi/\partial\phi=0$), and if $\psi_{s}$
+        denotes the evaluation of $\psi$ at the tuple
+        $(\rho,\,\phi_{s},\,\rho_{0},\,\phi_{0})$, then this approximate inverse
+        may be written by:
+        \begin{equation}
+            T(\rho)
+            \approx
+            \frac{\sin(B)}{i\lambda}
+            \int_{0}^{\infty}
+                \hat{T}(\rho_{0})
+                \sqrt{\frac{2\pi}{|\psi_{s}^{\prime\prime}|}}
+                \frac{\exp\left(-i(\psi_{s}-\pi/4)\right)}{D}\,
+                    \textrm{d}\rho_{0}
+        \end{equation}
+        We implement this in \texttt{rss\_ringoccs}
+        \cite{rssringoccs}, a suite of tools in C and
+        Python to numerically solve this inverse problem,
+        obtaining the function $T(\rho,\,\phi)$ from an observed
+        $\hat{T}(\rho_{0},\,\phi_{0})$ profile. This has been
+        highly optimized over the past few years to very efficiently
+        process the data. All of the occultation observations from Cassini
+        can be processed at a resolution of 1000 meters in about 20 minutes on a
+        decent computer (my initial code from 2017 took 130+
+        hours on that same computer, rewriting things in C certainly helped).
+        This has been used to study the rings and led to
+        \cite{FRENCH2023115678} and \cite{NICHOLSON2023115287}.
+        During the summer of 2025 I developed new numerical techniques to
+        process the diffracted data very carefully, allowing us to obtain new
+        ring profiles at incredibly high resolutions. We've been able to push
+        the methods all the way down to 10 or so meters, depending on the
+        data set, at which point the noise in the measurements start to become
+        an issue. We are now seeing new
+        structures in the rings of Saturn for the first time. The numerical
+        methods and the results obtained are currently being compiled into a
+        paper, and we hope to submit these efforts for publication soon.
+        \par\hfill\par
+        My other current interest lies in Lorentz geometry and spacetimes,
+        the mathematical framework of general relativity. A Lorentz manifold
+        is a pseudo-Riemannian manifold $(X,\,g)$ with signature $(n,\,1)$ for
+        some positive integer $n$. That is, an $n+1$ dimensional smooth
+        manifold together with a pseudo-Riemannian metric $g$%
+        \footnote{
+            Similar to a Riemannian metric, but the positive-definite
+            criterion is relaxed to non-degeneracy.
+        }
+        such that for every point $p\in{X}$ there is a chart
+        $(x_{1},\,\dots,\,x_{n},\,t)$ about $p$ such that:
+        \begin{equation}
+            g=-\textrm{d}t^{2}+\sum_{k=1}^{n}\textrm{d}x_{n}^{2}
+        \end{equation}
+        The null-vectors $v\in{T}_{x}X$, tangent vectors with
+        $g_{x}(v,\,v)=0$, satisfy the equation of a cone. This
+        \textit{light-cone} splits the tangent space into three parts: the
+        cone, the exterior, and the interior. The interior of the cone consists
+        of two connected components. A \textit{spacetime} is a Lorentz manifold
+        $(X,\,g)$ with a smoothly varying choice of these connected
+        components. This choice is called the \textit{future} direction at
+        each point, and the result is a \textit{time-orientation} of the
+        manifold. Spacetimes are the natural setting for the theory of
+        general relativity. Two points in a spacetime are
+        \textit{causally related} if there is a piece-wise smooth curve
+        $\gamma$ connecting them such that
+        $g_{\gamma(t)}(\gamma'(t),\,\gamma'(t))\leq{0}$ for all $t$.
+        Intuitively this means the speed of a particle traveling along $\gamma$
+        never exceeds the speed of light.
+        \par\hfill\par
+        For appropriate spacetimes (globally hyperbolic) $X$, causality can be
+        reduced to a question of \textit{linking}. The space of all light rays
+        in a globally hyperbolic space corresponds naturally to the
+        spherical cotangent bundle $ST^{*}M$ of a \textit{Cauchy surface} $M$,
+        a particular co-dimension 1 submanifold of the spacetime, and the
+        \textit{sky} of a point $p$ is given by the fiber of the canonical
+        projection $\pi:ST^{*}M\rightarrow{M}$. Topologically these skies are
+        spheres, and the question of causality can be reduced to
+        \textit{Legendrian linking} of the skies of points. This is the
+        Legendrian Low conjecture, proved by Chernov and Nemirovski in 2008
+        \cite{ChernovNemirovski2010LowConj}.
+        \par\hfill\par
+        Knot theory has found its way into Lortentz geometry in other ways.
+        The linking number, a famous invariant of links dating back to Gauss,
+        has been generalized by the \textit{affine linking number} of the
+        $(n-1)$ spheres in the spherical cotangent bundle of an $n$ dimensional
+        manifold, and these spheres need not be zero homologous
+        \cite{ChernovRudyak2003AffineLinkingGeneralTheory}.
+        In \cite{ChernovRudyak2002AffineLinkingAndCausality}
+        Chernov and Rudyak used this to prove a causal
+        relation between points in a spacetime in regards to this invariant.
+        Recently in 2024 Chernov and I used the notion of affine linking
+        number to obtain estimates for the number of times an observer would
+        see a star that is being gravitationally lensed
+        \cite{MaguireChernovAffineLinkingNumber}.
+    \section{Previous Work}
+        \subsection{DWEL}
+            The first \textit{real} project I worked on was DWEL, the
+            Dual Wavelength Echidna LIDAR
+            (\textbf{LI}ght \textbf{D}etectction \textbf{A}nd \textbf{R}anging),
+            described in \cite{DWEL2012}.
+            By using two lasers at 1064 nm and 1548 nm the instrument is able
+            to distinguish scattering from leaves and tree trunks. This allows
+            the mapping of forests for botanical studies. I, Glenn Howe, and
+            Kuravi Hewawasum worked on this at the Center for Atmospheric
+            Research (CAR) in Lowell, MA, in collaboration with UMass Boston
+            and Boston University, and the device saw uses in California,
+            Harvard forest, and Australia
+            \cite{Li2016RadiometricCO}.
+        \subsection{HiT\&MIS}
+            The bulk of my work at CAR, renamed LoCSST
+            (Lowell Center for Space Science and Technology), was on
+            HiT\&MIS, a spectrometer used to study the aurora borealis
+            (\cite{2011AGUFMSA13B1890C}, \cite{2014AGUFMSA13B4000H},
+            \cite{2015AGUFMSA13B2369A}). The
+            instrument used an echelle grating to achieve a high dispersion
+            order allowing several wavelengths of light to be detected and
+            differentiated between. Two copies of the instrument were built
+            and deployed in parallel with Dartmouth's BARREL mission in
+            Kiruna, Sweden. These efforts led to several talks and a
+            publication \cite{AryalHewawasamMaguire2018DerivationHitAndMIS}.
+        \subsection{SPINR}
+            The final project I worked on in Lowell was the analysis of data
+            from the SPINR sounding rocket mission. This is also where I began
+            to work in programming and implementing algorithms. SPINR was a very
+            interesting idea for a rocket, its detector only captured one
+            spatial dimension (the second axis used as a spectrograph). To
+            create a two-dimensional picture the rocket spun about smoothly
+            in the sky. The resulting \textit{sinograms} needed to be inverted
+            to obtain an image of the night sky. This involved working with
+            very large (26000-by-26000) matrices and delving into the theory of
+            numerical linear algebra and sparse matrix representation. The
+            final coding project was archived at MAST.
+    \section{Proposed Future Work}
+        I have a very strong background in programming. In
+        \cite{libtmpl} I have a nearly complete implementation of
+        \texttt{libm}, the standard mathematical library for the C programming
+        language, and benchmarks give results comparable or exceeding
+        \texttt{glibc}, while maintaining 1-2 ULP relative error.
+        I have also developed
+        knowledge in radio astronomy and general relativity over the years,
+        both in my Ph.D. work, and while working with the Cassini mission.
+        I would love to combine all of these skills into one effort, and that
+        is why I would like to be part of the Event Horizon Telescope team.
+        Each possible aspect of this interests me immensely, from data analysis
+        to theoretical physics to working on the actual telescopes.
+    \bibliographystyle{plain}
+    \bibliography{bib.bib}
+\end{document}
