@@ -33,7 +33,7 @@ int main(void)
     /*  The puts function is outlined in section 7.9.7.10 of the original     *
      *  ANSI C draft (C89), and in section 7.23.7.9 of the more recent C23    *
      *  draft. The description for the puts function is identical in both     *
-     *  versions, and states that puts return EOF should a write error occur, *
+     *  versions, and states that puts returns EOF should a write error occur,*
      *  otherwise puts returns a non-negative integer. Write Hello, World,    *
      *  but check to see if puts failed.                                      */
     const int status = puts("Hello, World!");
