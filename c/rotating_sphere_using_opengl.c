@@ -15,8 +15,8 @@
  *  along with this file.  If not, see <https://www.gnu.org/licenses/>.       *
  ******************************************************************************
  *  Purpose:                                                                  *
- *	    Simple program using OpenGL to render a rotating sphere.              *
- *      Linker arguments: -lGL -lGLU -lglut
+ *      Simple program using OpenGL to render a rotating sphere.              *
+ *      Linker arguments: -lGL -lGLU -lglut                                   *
  ******************************************************************************
  *  Author:     Ryan Maguire                                                  *
  *  Date:       February 28, 2025                                             *

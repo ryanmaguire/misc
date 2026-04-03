@@ -15,7 +15,7 @@
  *  along with this file.  If not, see <https://www.gnu.org/licenses/>.       *
  ******************************************************************************
  *  Purpose:                                                                  *
- *		Benchmarks writing a PPM using fputc or fwrite.                       *
+ *      Benchmarks writing a PPM using fputc or fwrite.                       *
  ******************************************************************************
  *  Author:     Ryan Maguire                                                  *
  *  Date:       February 13, 2025                                             *
@@ -83,7 +83,7 @@ int main(void)
 
     t0 = clock();
     for (n = 0; n < size; ++n)
-            write_alt(c[n], fp1);
+        write_alt(c[n], fp1);
 
     t1 = clock();
     printf("%E\n", (double)(t1 - t0) / CLOCKS_PER_SEC);

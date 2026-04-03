@@ -81,11 +81,11 @@ static double test(unsigned int N)
 /*  Computes the degree of the jones polynomial of the T_{p, q} torus knot.   */
 static unsigned int deg(unsigned int m, unsigned int n)
 {
-	const unsigned int a = (m - 1) * (n - 1) / 2;
-	const unsigned int b = n + 1;
-	const unsigned int c = m + 1;
-	const unsigned int d = m + n;
-	return a + b + c + d;
+    const unsigned int a = (m - 1) * (n - 1) / 2;
+    const unsigned int b = n + 1;
+    const unsigned int c = m + 1;
+    const unsigned int d = m + n;
+    return a + b + c + d;
 }
 
 /*  Checks if an ordered pair of integers represents a torus knot.            */
