@@ -1,0 +1,82 @@
+%-----------------------------------LICENSE------------------------------------%
+%   This file is free software: you can redistribute it and/or                 %
+%   modify it under the terms of the GNU General Public License as             %
+%   published by the Free Software Foundation, either version 3 of the         %
+%   License, or (at your option) any later version.                            %
+%                                                                              %
+%   This file is distributed in the hope that it will be useful,               %
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of             %
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the              %
+%   GNU General Public License for more details.                               %
+%                                                                              %
+%   You should have received a copy of the GNU General Public License along    %
+%   with this file.  If not, see <https://www.gnu.org/licenses/>.              %
+%------------------------------------------------------------------------------%
+%   Author: Ryan Maguire                                                       %
+%   Date:   2023/12/31                                                         %
+%------------------------------------------------------------------------------%
+\documentclass{letter}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue}
+
+\signature{Ryan Maguire}
+\address{%
+    2-238B\\%
+    Mathematics Department\\%
+    MIT\\%
+    Cambridge, MA USA%
+}
+\begin{document}
+    \begin{letter}{}
+        \opening{To whom it may concern,}
+            I am writing to apply for the position of physicist at the
+            Center for Astrophysics (CfA) working with the atomic and
+            molecular physics division.
+            Over the past 14 years I have developed a broad and
+            interdisciplinary research background in radio astronomy,
+            numerical and computational mathematics, optics, and aeronomy.
+            In this time I have gained 14 years of Python and shell scripting
+            experience, 9 years of experience in Fortran (F77, F90, F95,
+            and some F2003 and F2008), a decade of experience in C, and
+            have worked in a dozen and a half other languages.%
+            \footnote{%
+                See \url{https://github.com/ryanmaguire/mitx_mathematics_programming_examples}
+                for examples of how I brought programming languages into the
+                classroom at MIT (Python, C, Fortran, Pascal, and many more),
+                and \url{https://github.com/ryanmaguire/newtonian_black_holes}
+                for a hobby project to raytrace a black hole using classical
+                physics with the goal of benchmarking the performance of
+                different compilers and languages.
+            }
+            I have learned to combine my knowledge of programming,
+            numerical mathematics, and physics to create complex programs
+            for analyzing scientific data.
+            The best example of this is \texttt{rss\_ringoccs}%
+            \footnote{%
+                \url{https://github.com/NASA-Planetary-Science/rss_ringoccs}
+            },
+            a suite of code in C and Python for processing the radio science
+            data from the NASA Cassini mission.
+            \par
+            When I started working at Wellesley college with the radio science
+            team, the best methods for obtaining ring profiles of the rings of
+            Saturn were limited to just under 1 kilometer resolutions.
+            To date, the NASA PDS still only contains 1 kilometer profiles.
+            My work in this
+            field has allowed us to go much further, pushing the resolution
+            down to 10 to 20 meters. We are discovering new density waves in
+            the rings and structures that are much finer than anything seen before.
+            All of this was made possible by combining mathematics and physics
+            together, and developing the codebase to process this.%
+            \footnote{
+                The bulk of the heavy lifting is in
+                \url{https://github.com/ryanmaguire/libtmpl},
+                a library I am working on that provides a full implementation
+                of \texttt{libm}, the standard C mathematical library,
+                and much more (complex numbers, vectors, optics, etc.).
+            }
+            I believe this combination of skills will greatly benefit
+            the research being done at CfA.
+        \closing{Sincerely,}
+    \end{letter}
+\end{document}
