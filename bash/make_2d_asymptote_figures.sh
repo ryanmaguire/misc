@@ -16,7 +16,7 @@
 #   along with this file.  If not, see <https://www.gnu.org/licenses/>.        #
 ################################################################################
 #   Purpose:                                                                   #
-#      	Old script for generating 2D figures I wrote in asymptote.             #
+#       Old script for generating 2D figures I wrote in asymptote.             #
 ################################################################################
 #   Author:     Ryan Maguire                                                   #
 #   Date:       2024/02/04                                                     #
