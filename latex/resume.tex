@@ -17,14 +17,14 @@
 %------------------------------------------------------------------------------%
 \documentclass[a4paper,sans]{moderncv}
 \usepackage[scale=0.75]{geometry}
-\usepackage{moderncvbodyi, moderncvfooti}
 \usepackage{multicol}
+\usepackage{amssymb}
 
-\moderncvstyle{casual}
 \moderncvcolor{blue}
+\moderncvstyle{casual}
 \name{Ryan}{Maguire}
 \title{Resume}
-\email{rmaguire@protonmail.com}
+\email{rmaguire@mit.edu}
 % \phone[mobile]{+1~(555)-555-5555}
 
 \begin{document}
@@ -35,21 +35,21 @@
             {B.S.}
             {University of Massachusetts - Lowell}
             {}
-            {\textit{3.45}}
+            {}
             {Double Major in Mathematics and Physics}
         \cventry{2016--2017}
             {M.S.}
             {University of Massachusetts - Lowell}
             {}
-            {\textit{3.88}}
-            {Mathematics}
+            {}
+            {Applied Mathematics}
         \cventry{2019--2021}
             {M.A.}
             {Dartmouth College}
             {}
             {}
             {Mathematics}
-        \cventry{2019--Present}
+        \cventry{2019--2024}
             {Ph.D.}
             {Dartmouth College}
             {}
@@ -57,33 +57,119 @@
             {Mathematics}
     \section{Experience}
         \cventry%
+            {2024--Present}
+                {Postdoctoral Associate}
+                {MIT}
+                {Cambridge, MA}
+                {}
+                {%
+                    \begin{itemize}
+                        \item
+                            Instructor for the mathematics department.
+                            \begin{itemize}
+                                \item
+                                    18.100P: Real Analysis (Spring 2025, 2026).
+                            \end{itemize}
+                        \item
+                            Designed a vector calculus course for the
+                            open learning platform.
+                        \item
+                            Helping to develop the VRMIT project to bring
+                            VR / AR technologies into the classroom
+                            (\url{https://github.com/ryanmaguire/vrmit}),
+                            emphasizing vector calculus, classical mechanics,
+                            and electromagnetism.
+                        \item
+                            Researching computational mathematics, astronomy,
+                            spacetimes, and topology.
+                        \item
+                            Directed four PRIMES groups (2025 and 2026). The
+                            subjects are:
+                            \begin{itemize}
+                                \item
+                                    High-resolution reconstructions of
+                                    Saturn's rings and particle size
+                                    distributions in the F-ring.
+                                \item
+                                    Improving the performance of diffraction
+                                    reconstruction by exploring FFT methods
+                                    and polynomial interpolations for the
+                                    Cassini and Voyager 2 data, and application
+                                    of bifurcation methods.
+                                \item
+                                    Fast evaluation of the Jones polynomial.
+                                \item
+                                    Fast evaluation of Khovanov homology.
+                            \end{itemize}
+                        \item
+                            Supervising research for undergraduates
+                            (MIT UROP) in applied analysis,
+                            mathematical physics, and astronomy.
+                        \item
+                            Led Directed Reading Program groups during
+                            the winter sessions in 2025 and 2026.
+                    \end{itemize}
+                }
+                \cventry%
+                {2017--Present}
+                {Research Assistant / Research Scientist}
+                {Wellesley College}
+                {Wellesley, MA}
+                {}
+                {%
+                    Working with the Cassini Radio Science
+                    Experiment and Voyager data from Saturn and Uranus
+                    studying ring occultations.
+                    \begin{itemize}
+                        \item
+                            Working in diffraction theory studying Fredholm
+                            equations, Fresnel inversion, Fourier optics,
+                            and signal processing.
+                         \item
+                            Developing open-source software in C and Python to
+                            study the radio science data from the
+                            Cassini mission to Saturn.
+                         \item
+                            Created new numerical techniques that have allowed
+                            us to analyze ring structures with resolutions
+                            down to 10-20 meters. Current NASA PDS data are
+                            limited to 1000-meter resolutions.
+                     \end{itemize}
+                 }
+        \cventry%
             {2021--2023}
             {Lecturer}
             {Dartmouth College}
             {Hanover, NH}
             {}
             {%
-                Taught 3 courses at Dartmouth college.
                 \begin{itemize}
-                    \item Math 3, calculus (Fall 2021)
-                    \item Math 54, point-set topology (Summer 2022, 2023)
+                    \item Math 3, Calculus (Fall 2021).
+                    \item Math 54, Point-Set Topology (Summer 2022, 2023).
+                    \item Math 87, Topics in Topology (Fall 2022).
                 \end{itemize}
             }
         \cventry%
-            {2020--Present}
+            {2020--2024}
             {Research Assistant}
             {Dartmouth College}
             {Hanover, NH}
             {}
             {%
-                Work in topology, particular knot theory and Lorentz geometry.
+                Worked in topology, knot theory, and Lorentz geometry.
                 \begin{itemize}
                     \item
-                        Design and implement algorithms for the computations of
-                        knot invariants.
+                        Designed and implemented algorithms for the
+                        computations of knot invariants.
                     \item
                         Created large databases of knot invariants for studying
                         and experimenting with conjectures.
+                    \item
+                        Studied globally hyperbolic spacetimes and the
+                        relationships between link invariants and causality.
+                    \item
+                        Wrote code to ray trace black holes in
+                        various settings (Schwarzschild and de Sitter metrics).
                 \end{itemize}%
              }
         \cventry%
@@ -93,42 +179,19 @@
             {Hanover, NH}
             {}
             {%
-                Graded and ran tutorials for the mathematics department.
                 \begin{itemize}
                     \item
-                        Tutorials for Math 3, Math 8, and Math 13 (calculus).
+                        Math 3 (Differential Calculus).
                     \item
-                        Assisted with Math 17 and 32 (math beyond calculus and
-                        the shape of space).
+                        Math 8 (Differential and Integral Calculus).
+                    \item
+                        Math 13 (Vector Calculus).
+                    \item
+                        Math 17 (Knot Theory and Geometry).
+                    \item
+                        Math 32 (The Shape of Space).
                 \end{itemize}
             }
-        \cventry%
-            {2017--2019}
-            {Research Assistant}
-            {Wellesley College}
-            {Wellesley, MA}
-            {}
-            {%
-                Working with the Cassini Radio Science
-                Experiment studying ring occultations.
-                \begin{itemize}
-                    \item
-                        Worked in diffraction theory studying Fredholm
-                        equations, Fresnel inversion, Fourier optics,
-                        and signal processing.
-                     \item
-                        Developed open source software in Python and C to
-                        study the radio science data from the Cassini mission to Saturn.
-                 \end{itemize}
-                 Studied surgery theory and advanced topology.
-                 \begin{itemize}
-                     \item
-                        Participated in an informal reading
-                        course in algebraic topology.
-                     \item
-                        Attended a series of lectures on Surgery Theory.
-                 \end{itemize}%
-             }
         \cventry%
             {2012--2017}
             {Research Assistant}
@@ -140,14 +203,17 @@
                 LIDAR, and data analysis.
                 \begin{itemize}
                     \item
-                        Worked on DWEL, a dual wavelength LIDAR that was
+                        Worked on DWEL, a dual-wavelength LIDAR that was
                         deployed in Australia, California, and Harvard Forest.
                     \item
-                        Constructed and deployed HiT\&MIS.
-                        Instrument was successfully deployed to Kiruna,
-                        Sweden working with Dartmouth College's BARREL
+                        Constructed and deployed HiT\&MIS. The
+                        instrument was successfully deployed to Kiruna,
+                        Sweden, working with Dartmouth College's BARREL
                         Mission. Performed data analysis on the airglow of
                         several events.
+                    \item
+                        Assisted with laboratory operations and testing for the
+                        PICTURE sounding rocket.
                     \item
                         Worked on the data from the SPINR sounding rocket.
                         Developed code in IDL and worked on archiving the
@@ -161,34 +227,23 @@
             {Lowell, MA}
             {}
             {%
-                Grading and tutoring for the mathematics
-                and physics departments.
                 \begin{itemize}
-                    \item T.A. for Pre-Calculus, Calculus, Differential Equations,
-                       and Electromagnetism.
                     \item
-                        Mathematics tutor for the UML Disability
-                        Services for two semesters.
+                        Management Pre-Calculus.
                     \item
-                        General tutoring in all areas of undergraduate
-                        mathematics and physics.
+                        Differential Calculus.
+                    \item
+                        Differential Equations.
+                    \item
+                        Electromagnetism (6 semesters total).
+                    \item
+                        Mathematics tutor for disability services.
+                    \item
+                        General tutoring for the physics department.
+                    \item
+                        General tutoring for the mathematics department.
                 \end{itemize}%
             }
-    \section{Computer skills}
-        \makebox[2.3cm][l]{Advanced}
-        \texttt{C, Python, Linux/Unix, Bash}, \LaTeX\par
-        \makebox[2.3cm][l]{Intermediate}
-        \texttt{C++, Fortran, Rust, Pascal, Go, IDL, Swift, Java, SageMath}\par
-        \makebox[2.3cm][l]{Elementary}
-        \texttt{Mathematica, MATLAB, Ruby}
-    \section{Languages}
-        \makebox[2.3cm][l]{Native} English\par
-        \makebox[2.3cm][l]{Elementary} French, German, Turkish
-    \section{Interests}
-        \makebox[2.3cm][l]{Analysis} Fourier and functional analysis, numerical methods.\par
-        \makebox[2.3cm][l]{Geometry} Contact geometry, Lorentz geometry, spacetimes.\par
-        \makebox[2.3cm][l]{Physics} Cosmology, general relativity, particle physics.\par
-        \makebox[2.3cm][l]{Topology} Contact topology, knot theory, point-set.
     \section{Professional Development}
         \begin{itemize}
             \begin{multicols}{2}
@@ -197,27 +252,13 @@
                 \item DCAL Teaching Training, Winter 2019-2020
             \end{multicols}
         \end{itemize}
-    \section{Affiliations/Memberships}
-        \begin{itemize}
-            \begin{multicols}{2}
-                \item Society of Physics Students
-                \item Graduate Physics Association
-                \item American Mathematical Society
-            \end{multicols}
-        \end{itemize}
-    \section{Publications/Presentations}
-        \begin{itemize}
-            \begin{multicols}{2}
-                \item 2014 AGU Fall Meeting
-                \item 2014 UML Symposium
-                \item 2015 CEDAR Workshop
-                \item 2015 Fall AGU Meeting
-                \item 2017 CEDAR Workshop
-                \item 2018 NEROC Symposium
-                \item Final Cassini Symposium (2018)
-                \item Dartmouth Topology Seminar (Spring 2022)
-                \item Knots in Washington (Spring 2022)
-                \item Knots in Washington (Spring 2023)
-            \end{multicols}
-        \end{itemize}
+    \section{Computer skills}
+        \makebox[2.3cm][l]{Advanced}
+        \texttt{C, Python, Linux/Unix, Bash}, \LaTeX\par
+        \makebox[2.3cm][l]{Intermediate}
+        \texttt{C\#, C++, D, Objective-C, Fortran, Rust, Pascal,}\par
+        \makebox[2.3cm][l]{\phantom{Intermediate}}
+        \texttt{Go, IDL, Swift, Java, JavaScript, SageMath}\par
+        \makebox[2.3cm][l]{Elementary}
+        \texttt{Mathematica, MATLAB, Ruby, Julia, Kotlin, R, TypeScript}\par
 \end{document}

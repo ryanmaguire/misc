@@ -17,12 +17,11 @@
 %------------------------------------------------------------------------------%
 \documentclass[a4paper,sans]{moderncv}
 \usepackage[scale=0.75]{geometry}
-\usepackage{moderncvbodyi, moderncvfooti}
 \usepackage{multicol}
 \usepackage{amssymb}
 
-\moderncvstyle{casual}
 \moderncvcolor{blue}
+\moderncvstyle{casual}
 \name{Ryan}{Maguire}
 \title{Curriculum Vitae}
 \email{rmaguire@mit.edu}
@@ -70,20 +69,28 @@
                             \begin{itemize}
                                 \item
                                     18.100P: Real Analysis (Spring 2025, 2026).
+                                \item
+                                    Developed code for raytracing 3D objects
+                                    and rendering 2D fractals in C, used
+                                    for residential teaching.
                             \end{itemize}
                         \item
                             Designed a vector calculus course for the
-                            open learning platform.
+                            open learning platform. Emphasized visual learning
+                            using tools like asymptote, POV-Ray, and Three.js.
                         \item
-                            Helping to develop the VRMIT project to bring
+                            Developing the VRMIT project to bring
                             VR / AR technologies into the classroom
                             (\url{https://github.com/ryanmaguire/vrmit}).
+                            Using Godot (with a C / C++ helper library) to
+                            teach electromagnetism through interactive
+                            experiences.
                         \item
                             Researching topology, knot theory,
                             computational mathematics, and astronomy.
                         \item
                             Directed two PRIMES groups (Jan-Dec 2025). The
-                            subjects are:
+                            subjects were:
                             \begin{itemize}
                                 \item
                                     Fast evaluation of the Jones polynomial.
@@ -100,9 +107,9 @@
                                     Fast evaluation of Khovanov homology.
                                 \item
                                     Improving the performance of diffraction
-                                    reconstruction by exploring FFT methods
-                                    and polynomial interpolations for the
-                                    Cassini and Voyager 2 data.
+                                    reconstruction by exploring FFT
+                                    and polynomial interpolation methods
+                                    for the Cassini radio science data.
                             \end{itemize}
                         \item
                             Supervising research for undergraduates
@@ -121,8 +128,8 @@
                 {}
                 {%
                     Working with the Cassini Radio Science
-                    Experiment and Voyager 2 data from Saturn and Uranus
-                    studying ring occultations.
+                    Experiment, and the Voyager 1 and Voyager 2 data from
+                    Saturn and Uranus studying ring occultations.
                     \begin{itemize}
                         \item
                             Working in diffraction theory studying Fredholm
@@ -246,14 +253,16 @@
                 \end{itemize}%
             }
     \section{Interests}
-        \makebox[2.3cm][l]{Analysis}
+        \makebox[3.3cm][l]{Analysis}
             Fourier analysis, numerical methods.\par
-        \makebox[2.3cm][l]{Geometry}
+        \makebox[3.3cm][l]{Computer Science}
+            Algorithm design, high performance computing, low-level programming.\par
+        \makebox[3.3cm][l]{Geometry}
             Contact geometry, Lorentz geometry, spacetimes.\par
-        \makebox[2.3cm][l]{Physics}
-            Cosmology, general relativity, optics, astronomy.\par
-        \makebox[2.3cm][l]{Topology}
-            Contact topology, knot theory, point-set.
+        \makebox[3.3cm][l]{Physics}
+            Radio science, optics, astronomy, general relativity.\par
+        \makebox[3.3cm][l]{Topology}
+            Knot theory, computational topology, analysis of algorithms.
     \section{Publications}
         \begin{enumerate}
             \item
@@ -384,6 +393,9 @@
                 Horizons (2025):
                 Quandles and Detecting Causality
                 in Globally Hyperbolic Spacetimes.
+            \item
+                UML Space Physics Seminar (2026):
+                Radio Science and the Rings of Saturn.
         \end{enumerate}
     \section{Coding Projects}
         \begin{itemize}
@@ -547,16 +559,14 @@
         \makebox[2.3cm][l]{Intermediate}
         \texttt{C\#, C++, D, Objective-C, Fortran, Rust, Pascal,}\par
         \makebox[2.3cm][l]{\phantom{Intermediate}}
-        \texttt{Go, IDL, Swift, Java, JavaScript, SageMath}\par
+        \texttt{Go, IDL, Swift, Java, JavaScript, SageMath, MATLAB}\par
         \makebox[2.3cm][l]{Elementary}
-        \texttt{Mathematica, MATLAB, Ruby, Julia, Kotlin,}\par
+        \texttt{Mathematica, Ruby, Julia, Kotlin,}\par
         \makebox[2.3cm][l]{\phantom{Elementary}}
         \texttt{R, TypeScript}
     \section{Technical Drawing}
         \makebox[2.3cm][l]{Advanced}
         \texttt{asymptote}\par
         \makebox[2.3cm][l]{Intermediate}
-        \texttt{tikz}\par
-        \makebox[2.3cm][l]{Elementary}
-        \texttt{POV-Ray, SVG}
+        \texttt{tikz, POV-Ray, SVG}\par
 \end{document}
