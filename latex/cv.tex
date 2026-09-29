@@ -16,52 +16,81 @@
 %   Date:   2023/10/14                                                         %
 %------------------------------------------------------------------------------%
 \documentclass[letterpaper,sans]{moderncv}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[scale=0.75]{geometry}
-\usepackage{multicol}
 \usepackage{amssymb}
-\usepackage{hyperref}
-\hypersetup{colorlinks = true, linkcolor = blue, urlcolor = cyan}
+\usepackage{needspace}
+\setlength{\emergencystretch}{2em}
+\AtEndPreamble{%
+    \hypersetup{colorlinks = true, linkcolor = color1, urlcolor = color1}%
+}
+
+% Allow CV entries to split across two pages.
+\newcommand*{\cvcontinue}[2][.25em]{%
+    \cvitem[#1]{}{\begin{minipage}[t]{\linewidth}\small#2\end{minipage}}%
+}
 
 \moderncvcolor{blue}
 \moderncvstyle{casual}
+
+% moderncv can strand a section heading at the bottom of a page. Move the
+% heading to the next page unless a few lines of its section fit below it.
+\AtBeginDocument{%
+    \NewCommandCopy{\cvsectionheading}{\section}%
+    \RenewDocumentCommand{\section}{sm}{%
+        \Needspace{5\baselineskip}%
+        \IfBooleanTF{#1}{\cvsectionheading*{#2}}{\cvsectionheading{#2}}%
+    }%
+}
+
 \name{Ryan}{Maguire}
 \title{Curriculum Vitae}
 \email{rmaguire@spacescience.org}
 % \phone[mobile]{+1~(555)-555-5555}
+\homepage{ryanmaguire.github.io}
+\social[github]{ryanmaguire}
 
 \begin{document}
     \makecvtitle
     \section{Education}
-        \cventry{2012--2016}
-            {B.S.}
-            {University of Massachusetts - Lowell}
+        \cventry{2019--2024}
+            {Ph.D.}
+            {Dartmouth College}
             {}
             {}
-            {Double Major in Mathematics and Physics}
-        \cventry{2016--2017}
-            {M.S.}
-            {University of Massachusetts - Lowell}
-            {}
-            {}
-            {Mathematics}
+            {%
+                Mathematics\newline
+                Thesis:
+                \href{https://digitalcommons.dartmouth.edu/dissertations/270/}{%
+                    \textit{Khovanov Homology and Legendrian Simple Knots}%
+                }\newline
+                Advisor: Vladimir Chernov\strut%
+            }
         \cventry{2019--2021}
             {M.A.}
             {Dartmouth College}
             {}
             {}
             {Mathematics}
-        \cventry{2019--2024}
-            {Ph.D.}
-            {Dartmouth College}
+        \cventry{2016--2017}
+            {M.S.}
+            {University of Massachusetts Lowell}
             {}
             {}
             {Mathematics}
+        \cventry{2012--2016}
+            {B.S.}
+            {University of Massachusetts Lowell}
+            {}
+            {}
+            {Double Major in Mathematics and Physics}
     \section{Experience}
         \cventry%
             {2026--present}
             {Senior Member of Technical Staff}
             {Charles Stark Draper Laboratory}
-            {Cambridge, MA}
+            {\newline\mbox{Cambridge, MA}}
             {}
             {%
                 \begin{itemize}
@@ -73,14 +102,14 @@
                     \item
                         Developing flight software for various space missions.
                     \item
-                        Mathematical modeling of complex systems.
+                        Building mathematical models of complex systems.
                 \end{itemize}
             }
         \cventry%
             {2026--present}
             {Affiliate Research Scientist}
             {Space Science Institute}
-            {Boulder, CO}
+            {\mbox{Boulder, CO}}
             {}
             {%
                 \begin{itemize}
@@ -90,11 +119,11 @@
                         Studying the rings of Saturn and Uranus.
                 \end{itemize}
             }
-        \cventry%
+        \cventry[0pt]%
             {2024--2026}
             {Postdoctoral Associate}
             {MIT}
-            {Cambridge, MA}
+            {\mbox{Cambridge, MA}}
             {}
             {%
                 \begin{itemize}
@@ -104,156 +133,174 @@
                             \item
                                 18.100P: Real Analysis (Spring 2025, 2026).
                             \item
-                                Developed code for ray tracing 3D objects
-                                and rendering 2D fractals in C, used
-                                for residential teaching.
+                                Developed C code for ray tracing 3D objects
+                                and rendering 2D fractals for use in
+                                on-campus courses.
                             \item
+                                Brought computer science into mathematics
+                                courses through
                                 \href{%
                                     https://github.com/ryanmaguire/%
                                         mitx_mathematics_programming_examples%
-                                }{Brought computer science}
-                                into the classroom
-                                by exploring algorithms for concrete
-                                mathematical problems and learning the syntaxes
-                                for various programming languages.
+                                }{programming examples}
+                                that explore algorithms for concrete
+                                mathematical problems in a variety of
+                                programming languages.
                         \end{itemize}
                     \item
-                        Designed a vector calculus course for the
-                        open learning platform. Emphasized visual learning
-                        using tools like asymptote, POV-Ray, and Three.js.
-                    \item
-                        Developed the
-                        \href{https://github.com/ryanmaguire/vrmit}{VRMIT}
-                        project to bring VR / AR technologies into the
-                        classroom.
-                        Used Godot (with a C / C++ helper library) to
-                        teach electromagnetism through interactive
-                        experiences.
-                    \item
-                        Researched topology, knot theory,
-                        computational mathematics, and astronomy.
-                    \item
-                        Directed five PRIMES groups:
-                        \begin{itemize}
-                            \item
-                                Fast evaluation of the Jones polynomial.
-                            \item
-                                Fast evaluation of Khovanov homology.
-                            \item
-                                High resolution reconstructions of
-                                Saturn's rings.
-                            \item
-                                Particle size distributions in Saturn's F-ring.
-                            \item
-                                Improving the performance of diffraction
-                                reconstruction by exploring FFT
-                                and polynomial interpolation methods
-                                for the Cassini radio science data.
-                        \end{itemize}
-                    \item
-                        Supervised research for undergraduates
-                        (MIT UROP) in applied analysis,
-                        mathematical physics, and astronomy.
-                    \item
-                        Led directed reading program (DRP) groups during
-                        the winter sessions:
-                        \begin{itemize}
-                            \item
-                                Foundations and mathematical logic.
-                            \item
-                                Lorentz geometry, causality, and spacetimes.
-                        \end{itemize}
+                        Designed a vector calculus course for MIT's Open
+                        Learning platform. Emphasized visual learning
+                        using tools like Asymptote, POV-Ray, and Three.js.
                 \end{itemize}
             }
+        \cvcontinue[0pt]{%
+            \begin{itemize}
+                \item
+                    Developed the
+                    \href{https://github.com/ryanmaguire/vrmit}{VRMIT}
+                    project to bring VR/AR technologies into the
+                    classroom.
+                    Used Godot (with a C/C++ helper library) to
+                    teach electromagnetism through interactive
+                    experiences.
+                \item
+                    Researched topology, knot theory,
+                    computational mathematics, and astronomy.
+                \item
+                    Directed five MIT PRIMES groups (a research program
+                    for high school students):
+                    \begin{itemize}
+                        \item
+                            Fast evaluation of the Jones polynomial.
+                        \item
+                            Fast computation of Khovanov homology.
+                        \item
+                            High-resolution reconstructions of
+                            Saturn's rings.
+                        \item
+                            Particle size distributions in Saturn's F ring.
+                        \item
+                            Improving the performance of diffraction
+                            reconstruction by exploring FFT
+                            and polynomial interpolation methods
+                            for Cassini radio science data.
+                    \end{itemize}
+            \end{itemize}%
+        }
+        \cvcontinue{%
+            \begin{itemize}
+                \item
+                    Supervised undergraduate research (MIT UROP)
+                    in applied analysis, mathematical physics,
+                    and astronomy.
+                \item
+                    Led Directed Reading Program (DRP) groups during
+                    the winter sessions:
+                    \begin{itemize}
+                        \item
+                            Foundations and mathematical logic.
+                        \item
+                            Lorentz geometry, causality, and spacetimes.
+                    \end{itemize}
+            \end{itemize}%
+        }
         \cventry%
             {2017--2025}
             {Research Assistant}
             {Wellesley College}
-            {Wellesley, MA}
+            {\mbox{Wellesley, MA}}
             {}
             {%
-                Worked with the Cassini Radio Science
-                Experiment, and the Voyager 1 and Voyager 2 data from
-                Saturn and Uranus studying ring occultations.
+                Studied ring occultations using Cassini Radio Science
+                data, Voyager 1 and 2 data from Saturn, and Voyager 2
+                data from Uranus.
                 \begin{itemize}
                     \item
-                        Worked in diffraction theory studying Fredholm
+                        Worked in diffraction theory, studying Fredholm
                         equations, Fresnel inversion, Fourier optics,
                         and signal processing.
-                     \item
+                    \item
                         Developed
                         \href{%
                             https://github.com/NASA-Planetary-Science/%
                                 rss_ringoccs%
                         }{\texttt{rss\_ringoccs}},
-                        open source software in C and Python to
-                        study the radio science data from the
+                        open-source software in C and Python for
+                        studying radio science data from the
                         Cassini mission to Saturn.
-                     \item
-                        Created new numerical techniques that have allowed
-                        us to analyze ring structures with resolutions
-                        down to 10-20 meters. Previous NASA PDS data was
-                        limited to 1000 meter resolutions.
-                 \end{itemize}
+                    \item
+                        Created new numerical techniques that allow ring
+                        structures to be analyzed at resolutions down to
+                        10--20~m. Previous NASA PDS data were limited
+                        to 1000~m resolution.
+                \end{itemize}
             }
         \cventry%
             {2019--2024}
             {Research Assistant}
             {Dartmouth College}
-            {Hanover, NH}
+            {\mbox{Hanover, NH}}
+            {}
+            {%
+                Research in the mathematics department on Lorentz geometry,
+                knot theory, and spacetimes.
+                \begin{itemize}
+                    \item
+                        Designed and implemented algorithms for
+                        computing knot invariants.
+                    \item
+                        Created large databases of knot invariants for
+                        testing conjectures experimentally.
+                    \item
+                        Studied globally hyperbolic spacetimes and the
+                        relationships between link invariants and
+                        causality.
+                    \item
+                        Wrote code to ray trace black holes in
+                        various settings (Schwarzschild and de
+                        Sitter metrics).
+                \end{itemize}
+            }
+        \cventry%
+            {2019--2024}
+            {Lecturer and Teaching Assistant}
+            {Dartmouth College}
+            {\mbox{Hanover, NH}}
             {}
             {%
                 \begin{itemize}
                     \item
-                        Research assistant for the mathematics department
-                        studying Lorentz geometry, knot theory, and spacetimes.
-                        \begin{itemize}
-                            \item
-                                Designed and implemented algorithms for the
-                                computations of knot invariants.
-                            \item
-                                Created large databases of knot invariants for
-                                studying and experimenting with conjectures.
-                            \item
-                                Studied globally hyperbolic spacetimes, and the
-                                relationships between link invariants and
-                                causality.
-                            \item
-                                Wrote code to ray trace blackholes in
-                                various settings (Schwarzschild and de
-                                Sitter metrics).
-                        \end{itemize}
-                    \item
                         Lecturer for the mathematics department.
                         \begin{itemize}
                             \item
-                                Math 3, calculus (Fall 2021).
+                                Math 3: Calculus (Fall 2021).
                             \item
-                                Math 54, point-set topology (Summer 2022, 2023).
+                                Math 54: Point-Set Topology
+                                (Summer 2022, 2023).
                             \item
-                                Math 87, Topics in Topology (Fall 2022).
+                                Math 87: Topics in Topology (Fall 2022).
                         \end{itemize}
                     \item
                         Teaching assistant for undergraduate courses.
                         \begin{itemize}
                             \item
-                                Math 3 (Differential Calculus).
+                                Math 3: Differential Calculus.
                             \item
-                                Math 8 (Differential and Integral Calculus).
+                                Math 8: Differential and Integral Calculus.
                             \item
-                                Math 13 (Vector Calculus).
+                                Math 13: Vector Calculus.
                             \item
-                                Math 17 (Knot Theory and Geometry).
+                                Math 17: Knot Theory and Geometry.
                             \item
-                                Math 32 (The Shape of Space).
+                                Math 32: The Shape of Space.
                         \end{itemize}
                 \end{itemize}
             }
         \cventry%
             {2015--2019}
             {Teaching Assistant}
-            {University of Massachusetts - Lowell}
-            {Lowell, MA}
+            {University of Massachusetts Lowell}
+            {\mbox{Lowell, MA}}
             {}
             {%
                 \begin{itemize}
@@ -264,96 +311,124 @@
                     \item
                         Differential Equations.
                     \item
-                        Electromagnetism (6 semesters total).
+                        Electromagnetism (six semesters total).
                     \item
                         Mathematics tutor for disability services.
                     \item
-                        General tutoring for the physics department.
-                    \item
-                        General tutoring for the mathematics department.
+                        General tutoring for the physics and mathematics
+                        departments.
                 \end{itemize}%
             }
         \cventry%
             {2012--2017}
             {Research Assistant}
-            {Lowell Center for Science and Space Technology}
-            {Lowell, MA}
+            {Lowell Center for Space Science and Technology}
+            {\mbox{Lowell, MA}}
             {}
             {%
                 Worked in spectroscopy, interferometry,
                 LIDAR, and data analysis.
                 \begin{itemize}
                     \item
-                        Worked on DWEL, a dual wavelength LIDAR that was
-                        deployed in Australia, California, and Harvard Forest.
+                        Worked on DWEL, a dual-wavelength LIDAR that was
+                        deployed in Australia, California, and
+                        Massachusetts (Harvard Forest).
                     \item
-                        Constructed and deployed HiT\&MIS.
-                        Instrument was successfully deployed to Kiruna,
-                        Sweden working with Dartmouth College's BARREL
-                        Mission. Performed data analysis on the airglow of
+                        Constructed HiT\&MIS and deployed it to Kiruna,
+                        Sweden, in collaboration with Dartmouth College's
+                        BARREL mission. Analyzed airglow data from
                         several events.
                     \item
-                        Worked on the data from the SPINR sounding rocket.
-                        Developed code in IDL and worked on archiving the
-                        data for MAST.
+                        Worked with data from the SPINR sounding rocket:
+                        developed code in IDL and prepared the data for
+                        archiving at MAST.
                 \end{itemize}%
              }
     \section{Publications}
-        \begin{enumerate}
-            \item
-                \textit{Derivation of the Energy and Flux Morphology in an
-                Aurora Observed at Midlatitude Using Multispectral Imaging},
-                JGR Space Physics, 2018, with Saurav Aryal \textit{et al.}
-            \item
-                \textit{The Seven-lobed Shape of the Outer
-                Edge of Saturn’s A Ring}, Icarus, volume 390, 2023, with
-                Philip D. Nicholson, \textit{et al.}
-            \item
-                \textit{The complex shape of the outer edge of Saturn’s B ring,
-                as observed in Cassini occultation data},
-                Icarus, volume 405, 2023, with Richard French \textit{et al.}
+        \begin{enumerate}\raggedright
             \item
                 \textit{%
-                    Affine linking number estimates for the number of
-                    times an observer sees a star%
+                    \href{https://doi.org/10.1029/2018JA025229}{%
+                        Derivation of the Energy and Flux Morphology in an
+                        Aurora Observed at Midlatitude Using Multispectral
+                        Imaging%
+                    }%
                 },
-                Class. Quantum Grav., Vol. 41, 2024, with Vladimir Chernov.
+                Journal of Geophysical Research: Space Physics,
+                vol.~123, 2018, with Saurav Aryal \textit{et al.}
             \item
                 \textit{%
-                    Further Reverberations of the 1983
-                    Impact with Saturn’s C Ring
+                    \href{https://doi.org/10.1016/j.icarus.2022.115287}{%
+                        The Seven-Lobed Shape of the Outer
+                        Edge of Saturn's A Ring%
+                    }%
                 },
-                Icarus, volume 431, 2025, with Richard French \textit{et al.}
+                Icarus, vol.~390, 2023, with Philip~D.~Nicholson
+                \textit{et al.}
+            \item
+                \textit{%
+                    \href{https://doi.org/10.1016/j.icarus.2023.115678}{%
+                        The Complex Shape of the Outer Edge of Saturn's
+                        B Ring, as Observed in Cassini Occultation Data%
+                    }%
+                },
+                Icarus, vol.~405, 2023, with Richard~G.~French
+                \textit{et al.}
+            \item
+                \textit{%
+                    \href{https://doi.org/10.1088/1361-6382/ad2e41}{%
+                        Affine Linking Number Estimates for the Number of
+                        Times an Observer Sees a Star%
+                    }%
+                },
+                Classical and Quantum Gravity, vol.~41, 2024,
+                with Vladimir Chernov.
+            \item
+                \textit{%
+                    \href{https://doi.org/10.1016/j.icarus.2025.116463}{%
+                        Further Reverberations of the 1983
+                        Impact with Saturn's C Ring%
+                    }%
+                },
+                Icarus, vol.~431, 2025, with Richard~G.~French
+                \textit{et al.}
         \end{enumerate}
-    \section{Pre-Prints}
-        \begin{enumerate}
+    \section{Preprints}
+        \begin{enumerate}\raggedright
             \item
                 \textit{%
-                    Properties of an infinite dimensional
-                    Banach space over the field with two elements.%
+                    \href{https://arxiv.org/abs/1907.11939}{%
+                        Properties of an Infinite Dimensional Banach Space
+                        over the Field with Two Elements%
+                    }%
                 },
-                \textit{arxiv}, 2019, with Samuel Gomez and James Rose.
+                arXiv:1907.11939, 2019, with Samuel Gomez and James Rose.
             \item
                 \textit{%
-                    Conjectures on the Khovanov Homology of
-                    Legendrian and Transversely Simple Knots%
+                    \href{https://arxiv.org/abs/2205.11430}{%
+                        Conjectures on the Khovanov Homology of Torus Knots,
+                        Twist Knots, and Legendrian Simple Knots%
+                    }%
                 },
-                \textit{arxiv}, 2023, with Vladimir Chernov.
+                arXiv:2205.11430, 2022 (revised 2026),
+                with Vladimir Chernov.
         \end{enumerate}
     \section{Research Interests}
-        \makebox[3.3cm][l]{Analysis}
-            Fourier analysis, numerical methods.\par
-        \makebox[3.3cm][l]{Computer Science}
-            Algorithm design, high performance computing, low-level programming.\par
-        \makebox[3.3cm][l]{Geometry}
-            Contact geometry, Lorentz geometry, spacetimes.\par
-        \makebox[3.3cm][l]{Physics}
-            Radio science, optics, astronomy, general relativity.\par
-        \makebox[3.3cm][l]{Topology}
-            Knot theory, computational topology, contact topology.
+        \cvitem{Analysis}{Fourier analysis, numerical methods.}
+        \cvitem{Computer Science}{%
+            Algorithm design, high-performance computing,
+            low-level programming.%
+        }
+        \cvitem{Geometry}{Contact geometry, Lorentz geometry, spacetimes.}
+        \cvitem{Physics}{%
+            Radio science, optics, astronomy, general relativity.%
+        }
+        \cvitem{Topology}{%
+            Knot theory, computational topology, contact topology.%
+        }
     \section{Presentations}
         \begin{enumerate}
-            \item UML Symposium (2014)
+            \item UMass Lowell Symposium (2014)
             \item AGU Fall Meeting (2014)
             \item CEDAR Workshop (2015)
             \item AGU Fall Meeting (2015)
@@ -362,61 +437,61 @@
             \item Final Cassini Symposium (2018)
             \item
                 Dartmouth Graduate Student Seminar (2019):
-                Diaconescu's Theorem.
+                Diaconescu's Theorem
             \item
                 Dartmouth Graduate Student Seminar (2019):
-                Stone's Representation Theorem.
+                Stone's Representation Theorem
             \item
-                AGU Fall Meeting (2019)
-                The Shape of Saturn’s A Ring Edge from Cassini.
+                AGU Fall Meeting (2019):
+                The Shape of Saturn's A Ring Edge from Cassini
             \item
                 Dartmouth Graduate Student Seminar (2020):
-                Semi-Riemannian Geometry.
+                Semi-Riemannian Geometry
             \item
                 Dartmouth Topology Seminar (Spring 2022):
                 The Jones Polynomial
             \item
                 Knots in Washington (Spring 2022):
-                An Algorithm for the Jones Polynomial.
+                An Algorithm for the Jones Polynomial
             \item
                 Dartmouth Informal Seminar on Topology and Geometry (2022):
-                Affine Connections.
+                Affine Connections
             \item
                 Dartmouth Informal Seminar on Topology and Geometry (2022):
-                Semi-Riemannian Manifolds.
+                Semi-Riemannian Manifolds
             \item
                 Dartmouth Informal Seminar on Topology and Geometry (2022):
-                Homotopy Groups of Spheres.
+                Homotopy Groups of Spheres
             \item
                 Dartmouth Informal Seminar on Topology and Geometry (2022):
-                Einstein Equations (Part 1).
+                Einstein Equations (Part 1)
             \item
                 Dartmouth Informal Seminar on Topology and Geometry (2022):
-                Einstein Equations (Part 2).
+                Einstein Equations (Part 2)
             \item
                 Dartmouth Graduate Student Seminar (2023):
-                Pad\'{e} Approximates and the Remez Algorithm.
+                Pad\'{e} Approximants and the Remez Algorithm
             \item
                 Dartmouth Graduate Student Seminar (2023):
-                Newtonian Black Holes.
+                Newtonian Black Holes
             \item
                 Dartmouth Informal Seminar on Topology and Geometry (2023):
-                The Low Conjecture.
+                The Low Conjecture
             \item
                 Dartmouth Informal Seminar on Topology and Geometry (2023):
-                Borde-Sorkin Spacetimes.
+                Borde--Sorkin Spacetimes
             \item
                 Knots in Washington (2023):
-                Conjectures on Legendrian Simple Knots.
+                Conjectures on Legendrian Simple Knots
             \item
                 Dartmouth Informal Seminar on Topology and Geometry (2023):
-                Black Holes.
+                Black Holes
             \item
                 Dartmouth Graduate Student Seminar (2023):
-                Legendre Polynomials and Saturn.
+                Legendre Polynomials and Saturn
             \item
                 Knots in Washington (2023):
-                Gravitational Lensing.
+                Gravitational Lensing
             \item
                 Thesis Defense (2024):
                 Khovanov Homology and Legendrian Simple Knots
@@ -428,23 +503,23 @@
                 Relative Strengths of Knot Invariants by Experiment
             \item
                 Trisectors Workshop (2024):
-                Exotic Smooth Structures and Knot Traces.
+                Exotic Smooth Structures and Knot Traces
             \item
-                AMS Fall Northeast Sectionals (2024):
-                Tait Graphs of Virtual Knots.
+                AMS Fall Eastern Sectional Meeting (2024):
+                Tait Graphs for Virtual Knots
             \item
                 Knots in Washington 50 (2024):
-                Tait Graphs of Virtual Knots.
+                Tait Graphs of Virtual Knots
             \item
                 BIRS-IMAG (2025):
-                Affine Linking Number and Gravitational Lensing.
+                Affine Linking Number and Gravitational Lensing
             \item
                 Horizons (2025):
                 Quandles and Detecting Causality
-                in Globally Hyperbolic Spacetimes.
+                in Globally Hyperbolic Spacetimes
             \item
-                UML Space Physics Seminar (2026):
-                Radio Science and the Rings of Saturn.
+                UMass Lowell Space Physics Seminar (2026):
+                Radio Science and the Rings of Saturn
         \end{enumerate}
     \section{Programming Projects}
         \begin{itemize}
@@ -455,7 +530,7 @@
                         Nearly complete implementation of \texttt{libm}, the
                         C standard mathematical library, with additional
                         features such as vector geometry, algebra, knot theory,
-                        Fourier transforms, complex numbers, and more.
+                        Fourier transforms, and complex numbers.
                 \end{itemize}
             \item
                 \href{%
@@ -463,12 +538,12 @@
                 }{\texttt{rss\_ringoccs}}
                 \begin{itemize}
                     \item
-                        Suite of code for processing and analyzing the radio
-                        science data from the NASA Cassini mission. This
-                        numerically inverts the data from occultation
+                        Suite of code for processing and analyzing radio
+                        science data from NASA's Cassini mission. It
+                        numerically inverts data from occultation
                         observations and can be used to study the rings of
-                        Saturn. Recent improvements allow the code to be used on
-                        Uranus as well.
+                        Saturn. Recent improvements allow the code to be used
+                        for the rings of Uranus as well.
                 \end{itemize}
             \item
                 \href{%
@@ -476,9 +551,9 @@
                 }{\texttt{Mathematics-and-Physics}}
                 \begin{itemize}
                     \item
-                        All of my course notes from courses taught at
-                        Dartmouth and MIT, and courses I was the TA for at
-                        Dartmouth and UML.
+                        Notes for the courses I taught at Dartmouth and MIT,
+                        and for the courses I assisted at Dartmouth and
+                        UMass Lowell.
                 \end{itemize}
             \item
                 \href{%
@@ -532,8 +607,8 @@
                     \item
                         Renders Newton fractals for arbitrary polynomials
                         $p\in\mathbb{C}[z]$. Contains a full implementation of
-                        the Hubbard-Schleicher-Sutherland algorithm for
-                        determining all of the roots of complex polynomials.
+                        the Hubbard--Schleicher--Sutherland algorithm for
+                        finding all of the roots of a complex polynomial.
                     \item
                         Implementations: \texttt{C, Python}
                 \end{itemize}
@@ -546,8 +621,8 @@
                         Ray traces black holes by abusing Newtonian mechanics.
                         The force of gravity is allowed to act on light as if
                         photons had an arbitrarily small non-zero mass.
-                        Numerical methods are used to ray trace the path of
-                        light.
+                        Numerical methods are used to trace the paths of the
+                        light rays.
                     \item
                         Implementations:
                         \texttt{%
@@ -561,12 +636,12 @@
                 }{\texttt{perfectly\_normal\_spaces}}
                 \begin{itemize}
                     \item
-                        Visual for the fact that $\mathbb{R}^{2}$ is a perfectly
-                        normal topological space. Given any two disjoint closed
-                        regions $\mathcal{C}$, $\mathcal{D}$, that are each the
-                        finite union of polygonal figures, this plots the
-                        separating function:
-                        \begin{equation}
+                        Visualization of the fact that $\mathbb{R}^{2}$ is a
+                        perfectly normal topological space. Given any two
+                        disjoint closed regions $\mathcal{C}$ and
+                        $\mathcal{D}$, each a finite union of polygonal
+                        figures, this plots the separating function
+                        \[
                             f\big((x,\,y)\big)
                             =
                             \frac{%
@@ -575,11 +650,11 @@
                                 \textrm{dist}\big((x,\,y),\,\mathcal{C}\big)%
                                 +%
                                 \textrm{dist}\big((x,\,y),\,\mathcal{D}\big)%
-                            }
-                        \end{equation}
-                        The example provided are the Chinese symbols
-                        \textit{tu} and \textit{dou}, which translates to
-                        \textit{potato} in English, a running joke in my
+                            }.
+                        \]
+                        The provided example uses the Chinese characters
+                        \textit{tu} and \textit{dou}, which together translate
+                        to \textit{potato} in English, a running joke in my
                         topology class during the summer of 2022.
                     \item
                         Implementations: \texttt{C}
@@ -590,17 +665,17 @@
                 }{\texttt{random\_walks}}
                 \begin{itemize}
                     \item
-                        Draws random walks on various manifolds. Current
-                        manifolds provided are the torus, Klein bottle, and
-                        real projective plane.
-                    \item Implementations: \texttt{C, asymptote}
+                        Draws random walks on various manifolds. Currently
+                        supports the torus, the Klein bottle, and the real
+                        projective plane.
+                    \item Implementations: \texttt{C, Asymptote}
                 \end{itemize}
         \end{itemize}
     \section{Professional Development}
         \begin{itemize}
             \item ITAR Control Module, January 2013
             \item Laboratory Safety Training, January 2013
-            \item DCAL Teaching Training, Winter 2019-2020
+            \item DCAL Teaching Training, Winter 2019--2020
         \end{itemize}
     \section{Affiliations/Memberships}
         \begin{itemize}
@@ -609,20 +684,20 @@
             \item American Mathematical Society
         \end{itemize}
     \section{Languages}
-        \makebox[2.3cm][l]{Native} English\par
-        \makebox[2.3cm][l]{Elementary} French, German, Turkish
-    \section{Computer skills}
-        \makebox[2.3cm][l]{Advanced}
-        \texttt{C, Python, Linux/Unix, Bash}, \LaTeX\par
-        \makebox[2.3cm][l]{Intermediate}
-        \texttt{C\#, C++, D, Objective-C, Fortran, Rust, Pascal, Go,}\par
-        \makebox[2.3cm][l]{\phantom{Intermediate}}
-        \texttt{MATLAB / Octave, IDL, Swift, Java, JavaScript, SageMath}\par
-        \makebox[2.3cm][l]{Elementary}
-        \texttt{Mathematica, Ruby, Julia, Kotlin, R, TypeScript}\par
-        \section{Technical Drawing}
-        \makebox[2.3cm][l]{Advanced}
-        \texttt{asymptote}\par
-        \makebox[2.3cm][l]{Intermediate}
-        \texttt{tikz, POV-Ray, SVG}\par
+        \cvitem{Native}{English}
+        \cvitem{Elementary}{French, German, Turkish}
+    \section{Computer Skills}
+        \cvitem{Advanced}{\texttt{C, Python, Linux/Unix, Bash}, \LaTeX}
+        \cvitem{Intermediate}{%
+            \texttt{%
+                C\#, C++, D, Objective-C, Fortran, Rust, Pascal, Go,
+                MATLAB/Octave, IDL, Swift, Java, JavaScript, SageMath%
+            }%
+        }
+        \cvitem{Elementary}{%
+            \texttt{Mathematica, Ruby, Julia, Kotlin, R, TypeScript}%
+        }
+    \section{Graphics and Visualization}
+        \cvitem{Advanced}{\texttt{Asymptote}}
+        \cvitem{Intermediate}{\texttt{TikZ, POV-Ray, SVG}}
 \end{document}
